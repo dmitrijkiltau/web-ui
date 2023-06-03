@@ -1,0 +1,37 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --header-height: 4rem;
+  --color-foreground: #000;
+  --color-background: #fff;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font: 16px/1.5 sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+@import './breakpoints';
+@import './header';
+
+.centered {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.container {
+  border: 1px solid var(--color-foreground);
+	display: flex;
+	justify-content: center;
+	padding: 1rem;
+}
