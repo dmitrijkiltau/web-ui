@@ -1,14 +1,17 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 :root {
   --header-height: 4rem;
-  --color-foreground: #000;
-  --color-background: #fff;
+  --color-foreground: hsl(0, 0%, 0%);
+  --color-background: hsl(0, 0%, 100%);
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   font: 16px/1.5 sans-serif;
@@ -17,21 +20,48 @@ html, body {
   overflow-x: hidden;
 }
 
-@import './breakpoints';
-@import './header';
+nav > menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
-.centered {
-  width: 100%;
+@import "./fonts";
+@import "./breakpoints";
+@import "./header";
+@import "./footer";
+
+.page {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+#main-content {
+  width: 100%;
+  flex: 1;
+  margin-top: var(--header-height);
+}
+
+section {
+  &.bg-color {
+    padding: 2rem 1rem;
+
+    &.bg-color-1 {
+      background-color: hsl(0, 0%, 95%);
+    }
+
+    &.bg-color-2 {
+      background-color: hsl(0, 0%, 5%);
+      color: var(--color-background);
+    }
+  }
 }
 
 .container {
+  display: flex;
+  justify-content: center;
   border: 1px solid var(--color-foreground);
-	display: flex;
-	justify-content: center;
-	padding: 1rem;
 }

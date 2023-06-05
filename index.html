@@ -10,56 +10,111 @@
 </head>
 
 <body>
-  <header id="main-header">
-    <div class="header">
-      <div class="header-container w-md">
-        <div id="logo">
-          <img src="src/img/logo.png" alt="logo">
+  <div class="page">
+    <header id="main-header">
+      <div class="header">
+        <div class="header-container w-md">
+          <div id="logo">
+            <img src="src/img/logo.png" alt="logo">
+          </div>
+
+          <nav id="main-menu">
+            <menu>
+              <li class="menu-item"><a href="#">Start</a></li>
+              <li class="menu-item" data-identifier="menu-1"><a href="#">Über uns</a></li>
+              <li class="menu-item" data-identifier="menu-2"><a href="#">Social</a></li>
+            </menu>
+          </nav>
+        </div>
+      </div>
+
+      <div id="main-flyout">
+        <div class="flyout-container w-md">
+          <div class="flyout-item" data-identifier="menu-1">
+            <div class="flyout-content">
+              <h3>Über uns</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+            </div>
+
+            <nav class="flyout-menu">
+              <menu>
+                <li class="menu-item"><a href="#">FAQ</a></li>
+                <li class="menu-item"><a href="#">Mehr</a></li>
+                <li class="menu-item"><a href="#">Kontakt</a></li>
+              </menu>
+            </nav>
+          </div>
+
+          <div class="flyout-item" data-identifier="menu-2">
+            <nav class="flyout-menu">
+              <menu>
+                <li class="menu-item"><a href="#">Github</a></li>
+                <li class="menu-item"><a href="#">Twitter</a></li>
+                <li class="menu-item"><a href="#">Instagram</a></li>
+                <li class="menu-item"><a href="#">Facebook</a></li>
+              </menu>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div id="flyout-overlay"></div>
+    </header>
+
+    <main id="main-content">
+      <section id="hero" class="bg-color bg-color-1">
+        <div class="hero-container w-md">
+          <div class="hero-item">
+            <h1>Hero</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-color bg-color-2">
+        <div class="container w-lg">calc(1280px - 2rem)</div>
+        <div class="container w-md">calc(960px - 2rem)</div>
+      </section>
+
+      <section>
+        <div class="container w-xl">calc(1440px - 2rem)</div>
+        <div class="container w-lg">calc(1280px - 2rem)</div>
+        <div class="container w-md">calc(960px - 2rem)</div>
+        <div class="container w-sm">calc(600px - 2rem)</div>
+      </section>
+    </main>
+
+    <footer id="main-footer">
+      <div class="footer-container w-lg">
+        <div class="footer-item">
+          <h3>Footer</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
         </div>
 
-        <nav id="main-menu">
-          <ul>
-            <li class="menu-item"><a href="#">Start</a></li>
-            <li class="menu-item" data-identifier="menu-1"><a href="#">Über uns</a></li>
-            <li class="menu-item" data-identifier="menu-2"><a href="#">Social</a></li>
-          </ul>
+        <div class="footer-item">
+          <h3>Footer</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        </div>
+
+        <div class="footer-item">
+          <h3>Footer</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        </div>
+      </div>
+
+      <div class="footer-bar w-lg">
+        <div class="footer-copyright">
+          <span>© <span id="footer-date"></span> Dmitrij <a href="https://kiltau.com/">Kiltau</a>.</span>
+        </div>
+
+        <nav id="footer-bar-menu">
+          <menu>
+            <li class="menu-item"><a href="#">Impressum</a></li>
+            <li class="menu-item"><a href="#">Datenschutz</a></li>
+          </menu>
         </nav>
       </div>
-    </div>
-
-    <div id="main-flyout">
-      <div class="flyout-container w-md">
-        <div class="flyout-item" data-identifier="menu-1">
-          <nav class="flyout-menu">
-            <ul>
-              <li class="menu-item"><a href="#">FAQ</a></li>
-              <li class="menu-item"><a href="#">Mehr</a></li>
-              <li class="menu-item"><a href="#">Kontakt</a></li>
-            </ul>
-          </nav>
-        </div>
-
-        <div class="flyout-item" data-identifier="menu-2">
-          <nav class="flyout-menu">
-            <ul>
-              <li class="menu-item"><a href="#">Github</a></li>
-              <li class="menu-item"><a href="#">Twitter</a></li>
-              <li class="menu-item"><a href="#">Instagram</a></li>
-              <li class="menu-item"><a href="#">Facebook</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-
-    <div id="flyout-overlay"></div>
-  </header>
-
-  <div class="centered">
-    <div class="container w-xl">calc(1440px - 2rem)</div>
-    <div class="container w-lg">calc(1280px - 2rem)</div>
-    <div class="container w-md">calc(960px - 2rem)</div>
-    <div class="container w-sm">calc(600px - 2rem)</div>
+    </footer>
   </div>
 
   <script src="src/script/script.js"></script>

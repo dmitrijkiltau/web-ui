@@ -1,4 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
+  initHeader();
+  initFooter();
+});
+
+function initHeader() {
   const header = document.querySelector('#main-header');
   if (!header) return;
 
@@ -11,7 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (mainMenu && mainMenuItems.length > 0 && flyout && flyoutItems.length > 0 && flyoutOverlay) {
     initMainMenu(mainMenu, mainMenuItems, flyout, flyoutItems, flyoutOverlay);
   }
-});
+}
 
 function initMainMenu(mainMenu, mainMenuItems, flyout, flyoutItems, flyoutOverlay) {
   for (const menuItem of mainMenuItems) {
@@ -44,4 +49,14 @@ function initMainMenu(mainMenu, mainMenuItems, flyout, flyoutItems, flyoutOverla
     flyout.classList.remove('active');
     flyoutOverlay.classList.remove('active');
   }
+}
+
+function initFooter() {
+  initFooterDate();
+}
+
+function initFooterDate() {
+  const footerDate = document.querySelector('#footer-date');
+  if (!footerDate) return;
+  footerDate.textContent = new Date().getFullYear();
 }
