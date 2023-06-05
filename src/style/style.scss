@@ -46,16 +46,14 @@ nav > menu {
 }
 
 section {
-  &.bg-color {
-    padding: 2rem 1rem;
-
-    &.bg-color-1 {
-      background-color: hsl(0, 0%, 95%);
-    }
-
-    &.bg-color-2 {
+  &.bg {
+    &__primary {
       background-color: hsl(0, 0%, 5%);
       color: var(--color-background);
+    }
+
+    &__secondary {
+      background-color: hsl(0, 0%, 95%);
     }
   }
 }
@@ -66,4 +64,12 @@ section {
   border: 1px solid var(--color-foreground);
   padding: 1rem;
   margin: 1rem auto;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
