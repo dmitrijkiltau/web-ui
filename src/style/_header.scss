@@ -36,7 +36,8 @@
 
     &:hover,
     &:focus,
-    &.current {
+    &.current,
+    &.active {
       a {
         background-size: 100% 2px;
       }
