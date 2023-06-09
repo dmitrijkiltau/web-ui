@@ -20,14 +20,15 @@ body {
   overflow-x: hidden;
 }
 
+@import "./breakpoints";
+@import "./fonts";
+
 nav > menu {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-@import "./fonts";
-@import "./breakpoints";
 @import "./header";
 @import "./footer";
 

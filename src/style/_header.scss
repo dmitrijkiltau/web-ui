@@ -36,8 +36,7 @@
 
     &:hover,
     &:focus,
-    &.current,
-    &.active {
+    &.current {
       a {
         background-size: 100% 2px;
       }
@@ -125,6 +124,7 @@
   background-color: hsl(0, 0%, 5%, 0.1);
   backdrop-filter: blur(0.4rem);
   transition: opacity 0.2s ease-in;
+  cursor: pointer;
 
   &:not(.active) {
     pointer-events: none;

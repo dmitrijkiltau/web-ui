@@ -7,18 +7,17 @@ function initHeader() {
   const header = document.querySelector('#main-header');
   if (!header) return;
 
-  const mainMenu = document.querySelector('#main-menu');
   const mainMenuItems = document.querySelectorAll('#main-menu .menu-item');
   const flyout = document.querySelector('#main-flyout');
   const flyoutItems = document.querySelectorAll('#main-flyout .flyout-item');
   const flyoutOverlay = document.querySelector('#flyout-overlay');
 
-  if (mainMenu && mainMenuItems.length > 0 && flyout && flyoutItems.length > 0 && flyoutOverlay) {
-    initMainMenu(mainMenu, mainMenuItems, flyout, flyoutItems, flyoutOverlay);
+  if (mainMenuItems.length > 0 && flyout && flyoutItems.length > 0 && flyoutOverlay) {
+    initMainMenu(mainMenuItems, flyout, flyoutItems, flyoutOverlay);
   }
 }
 
-function initMainMenu(mainMenu, mainMenuItems, flyout, flyoutItems, flyoutOverlay) {
+function initMainMenu(mainMenuItems, flyout, flyoutItems, flyoutOverlay) {
   for (const menuItem of mainMenuItems) {
     menuItem.addEventListener('click', () => {
       const identifier = menuItem.dataset.identifier;
@@ -27,6 +26,10 @@ function initMainMenu(mainMenu, mainMenuItems, flyout, flyoutItems, flyoutOverla
   }
 
   flyoutOverlay.addEventListener('click', closeFlyout, { passive: true });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeFlyout();
+  }, { passive: true });
 
   function openFlyout(identifier) {
     for (const menuItem of mainMenuItems) {
