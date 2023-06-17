@@ -13,17 +13,10 @@ function initHeader() {
   const flyoutItems = header.querySelectorAll('#main-flyout .flyout-item');
   const flyoutOverlay = header.querySelector('#flyout-overlay');
 
-  if (mobileMenuToggle && mainMenuItems.length > 0 && flyout && flyoutItems.length > 0 && flyoutOverlay) {
-    initMainMenu(mobileMenuToggle, mainMenuItems, flyout, flyoutItems, flyoutOverlay);
-  }
-}
-
-function initMainMenu(mobileMenuToggle, mainMenuItems, flyout, flyoutItems, flyoutOverlay) {
-  mobileMenuToggle.addEventListener('click', () => {
-    const identifier = mobileMenuToggle.dataset.identifier;
-    if (mobileMenuToggle.classList.contains('active')) closeFlyout();
-    else if (identifier) openFlyout(identifier);
-  }, { passive: true });
+  if (
+    !mobileMenuToggle || mainMenuItems.length === 0 ||
+    !flyout || flyoutItems.length === 0 || !flyoutOverlay
+  ) return;
 
   for (const menuItem of mainMenuItems) {
     menuItem.addEventListener('click', () => {
@@ -31,6 +24,12 @@ function initMainMenu(mobileMenuToggle, mainMenuItems, flyout, flyoutItems, flyo
       (identifier) ? openFlyout(identifier) : closeFlyout();
     }, { passive: true });
   }
+
+  mobileMenuToggle.addEventListener('click', () => {
+    const identifier = mobileMenuToggle.dataset.identifier;
+    if (mobileMenuToggle.classList.contains('active')) closeFlyout();
+    else if (identifier) openFlyout(identifier);
+  }, { passive: true });
 
   flyoutOverlay.addEventListener('click', closeFlyout, { passive: true });
 
