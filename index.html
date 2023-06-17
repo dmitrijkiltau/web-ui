@@ -25,11 +25,32 @@
               <li class="menu-item" data-identifier="menu-2"><a href="#">Social</a></li>
             </menu>
           </nav>
+
+          <button id="mobile-menu-toggle" data-identifier="menu-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-menu">
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-close">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
         </div>
       </div>
 
       <div id="main-flyout">
         <div class="flyout-container w-md">
+          <div id="mobile-menu" class="flyout-item" data-identifier="menu-0">
+            <nav class="flyout-menu">
+              <menu>
+                <li class="menu-item current"><a href="#">Start</a></li>
+                <li class="menu-item" data-identifier="menu-1"><a href="#">Über uns</a></li>
+                <li class="menu-item" data-identifier="menu-2"><a href="#">Social</a></li>
+              </menu>
+            </nav>
+          </div>
+
           <div class="flyout-item" data-identifier="menu-1">
             <div class="flyout-content">
               <h3>Über uns</h3>
