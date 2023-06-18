@@ -1,0 +1,51 @@
+@layer base {
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    @apply [&:not(:first-child)]:mt-8 [&:not(:last-child)]:mb-4;
+  }
+
+  h1,
+  .h1 {
+    @apply text-h1;
+  }
+
+  h2,
+  .h2 {
+    @apply text-h2;
+  }
+
+  h3,
+  .h3 {
+    @apply text-h3;
+  }
+
+  h4,
+  .h4 {
+    @apply text-h4;
+  }
+
+  h5,
+  .h5 {
+    @apply text-h5;
+  }
+
+  h6,
+  .h6 {
+    @apply text-h6;
+  }
+
+  p,
+  .text {
+    @apply text-base [&:not(:last-child)]:mb-4;
+  }
+}
