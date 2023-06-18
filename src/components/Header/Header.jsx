@@ -76,7 +76,7 @@ function Header() {
 
   function initHeader() {
     const header = document.querySelector("#main-header");
-    if (!header) return;  // If header is not found, abort
+    if (!header) return;
 
     const mobileMenuToggle = header.querySelector("#mobile-menu-toggle");
     const mainMenuItems = header.querySelectorAll(
