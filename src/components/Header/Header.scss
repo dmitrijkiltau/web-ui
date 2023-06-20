@@ -69,12 +69,9 @@
 }
 
 #main-flyout {
-  @apply z-[900] fixed top-16 left-0 w-full flex justify-center items-center pt-8 pb-12;
+  @apply z-[900] fixed top-16 left-0 w-full flex justify-center pt-8 pb-12;
   @apply bg-primary-100 border-b border-b-primary duration-500 ease-out;
-
-  @screen msm {
-    @apply bottom-0 overflow-y-auto;
-  }
+  @apply max-h-[calc(100vh-4rem)] overflow-y-auto;
 
   &:not(.active) {
     @apply pointer-events-none opacity-0 -translate-y-full;
@@ -100,26 +97,37 @@
   }
 
   .flyout-item {
-    @apply col-start-1 row-start-1 h-full flex gap-8 duration-300 ease-in;
+    --flyout-item-height: 1fr;
+    @apply col-start-1 row-start-1 overflow-hidden;
+    @apply grid items-start duration-500 ease-out;
+    grid-template-rows: var(--flyout-item-height);
 
-    &:not(.active) {
-      @apply pointer-events-none h-0 opacity-0;
+    .flyout-item-container {
+      @apply flex msm:flex-col gap-8 overflow-hidden;
+      @apply bg-primary-100 duration-300 ease-out;
     }
 
-    @screen msm {
-      @apply flex-col pb-12;
+    &:not(.active) {
+      --flyout-item-height: 0fr;
+      @apply pointer-events-none;
+
+      .flyout-item-container {
+        @apply opacity-0 -z-[1];
+      }
     }
 
     @screen sm {
-      @apply bottom-0;
-
-      .flyout-content {
-        @apply flex-[2];
+      menu.as-grid {
+        @apply grid grid-cols-2 gap-x-4;
       }
+    }
 
-      .flyout-menu {
-        @apply flex-[3];
-      }
+    .flyout-content {
+      @apply sm:flex-[2];
+    }
+
+    .flyout-menu {
+      @apply sm:flex-[3];
     }
   }
 }

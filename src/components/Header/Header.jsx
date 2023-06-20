@@ -14,7 +14,6 @@ const menuItems = [
   {
     id: nanoid(),
     name: "About",
-    target: "_self",
     subItems: [
       {
         id: nanoid(),
@@ -41,7 +40,6 @@ const menuItems = [
   {
     id: nanoid(),
     name: "Social",
-    target: "_self",
     subItems: [
       {
         id: nanoid(),
@@ -65,6 +63,30 @@ const menuItems = [
         id: nanoid(),
         name: "LinkedIn",
         link: "https://www.linkedin.com/in/dmitrij-kiltau-70bb4b1bb",
+        target: "_blank",
+      },
+      {
+        id: nanoid(),
+        name: "Xing",
+        link: "https://www.xing.com/profile/Dmitrij_Kiltau",
+        target: "_blank",
+      },
+      {
+        id: nanoid(),
+        name: "PayPal",
+        link: "https://paypal.me/kiltau",
+        target: "_blank",
+      },
+      {
+        id: nanoid(),
+        name: "Quora",
+        link: "https://de.quora.com/profile/Dmitrij-Kiltau",
+        target: "_blank",
+      },
+      {
+        id: nanoid(),
+        name: "Facebook",
+        link: "https://facebook.com/dmitrijkiltau",
         target: "_blank",
       },
     ],
@@ -126,6 +148,13 @@ function Header() {
       { passive: true }
     );
 
+    window.addEventListener("resize", () => {
+      adjustFlyoutHeight();
+      const mobileMenuOpen =
+        header.querySelector("#mobile-menu.active") || false;
+      if (window.innerWidth >= 640 && mobileMenuOpen) closeFlyout();
+    });
+
     function openFlyout(identifier) {
       for (const menuItem of mainMenuItems) {
         toggleElementByIdentifier(menuItem, identifier);
@@ -135,9 +164,29 @@ function Header() {
         toggleElementByIdentifier(flyoutItem, identifier);
       }
 
+      adjustFlyoutHeight();
       flyout.classList.add("active");
       flyoutOverlay.classList.add("active");
       mobileMenuToggle.classList.add("active");
+    }
+
+    function adjustFlyoutHeight() {
+      const activeFlyoutItem = [...flyoutItems].filter((item) =>
+        item.classList.contains("active")
+      )[0];
+
+      if (!activeFlyoutItem) return;
+
+      const currentFlyoutItemHeight =
+        activeFlyoutItem.querySelector(".flyout-item-container")
+          ?.scrollHeight || "0fr";
+
+      for (const flyoutItem of flyoutItems) {
+        flyoutItem.style.setProperty(
+          "--flyout-item-height",
+          `${currentFlyoutItemHeight}px`
+        );
+      }
     }
 
     function closeFlyout() {
@@ -182,36 +231,40 @@ function Header() {
       <div id="main-flyout">
         <div class="flyout-container">
           <div id="mobile-menu" class="flyout-item" data-identifier="main-menu">
-            <nav class="flyout-menu">
-              <menu>
-                <For each={menuItems}>{(item) => <MenuItem {...item} />}</For>
-              </menu>
-            </nav>
+            <div class="flyout-item-container">
+              <nav class="flyout-menu">
+                <menu class={menuItems.length > 4 ? "as-grid" : null}>
+                  <For each={menuItems}>{(item) => <MenuItem {...item} />}</For>
+                </menu>
+              </nav>
+            </div>
           </div>
 
           <For each={menuItems}>
             {(item) => (
               <Show when={item.subItems}>
                 <div class="flyout-item" data-identifier={item.id}>
-                  <Show when={item.teaserTitle || item.teaserText}>
-                    <div class="flyout-content">
-                      <Show when={item.teaserTitle}>
-                        <h3>{item.teaserTitle}</h3>
-                      </Show>
+                  <div class="flyout-item-container">
+                    <Show when={item.teaserTitle || item.teaserText}>
+                      <div class="flyout-content">
+                        <Show when={item.teaserTitle}>
+                          <h3>{item.teaserTitle}</h3>
+                        </Show>
 
-                      <Show when={item.teaserText}>
-                        <p>{item.teaserText}</p>
-                      </Show>
-                    </div>
-                  </Show>
+                        <Show when={item.teaserText}>
+                          <p>{item.teaserText}</p>
+                        </Show>
+                      </div>
+                    </Show>
 
-                  <nav class="flyout-menu">
-                    <menu>
-                      <For each={item.subItems}>
-                        {(subItem) => <MenuItem {...subItem} />}
-                      </For>
-                    </menu>
-                  </nav>
+                    <nav class="flyout-menu">
+                      <menu class={item.subItems.length > 4 ? "as-grid" : null}>
+                        <For each={item.subItems}>
+                          {(subItem) => <MenuItem {...subItem} />}
+                        </For>
+                      </menu>
+                    </nav>
+                  </div>
                 </div>
               </Show>
             )}
