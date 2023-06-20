@@ -93,119 +93,115 @@ const menuItems = [
   },
 ];
 
-function Header() {
-  window.addEventListener("DOMContentLoaded", initHeader, { passive: true });
+function initHeader() {
+  const header = document.querySelector("#main-header");
+  if (!header) return;
 
-  function initHeader() {
-    const header = document.querySelector("#main-header");
-    if (!header) return;
+  const mobileMenuToggle = header.querySelector("#mobile-menu-toggle");
+  const mainMenuItems = header.querySelectorAll(
+    "#main-menu .menu-item, #mobile-menu .menu-item"
+  );
+  const flyout = header.querySelector("#main-flyout");
+  const flyoutItems = header.querySelectorAll("#main-flyout .flyout-item");
+  const flyoutOverlay = header.querySelector("#flyout-overlay");
 
-    const mobileMenuToggle = header.querySelector("#mobile-menu-toggle");
-    const mainMenuItems = header.querySelectorAll(
-      "#main-menu .menu-item, #mobile-menu .menu-item"
-    );
-    const flyout = header.querySelector("#main-flyout");
-    const flyoutItems = header.querySelectorAll("#main-flyout .flyout-item");
-    const flyoutOverlay = header.querySelector("#flyout-overlay");
+  if (
+    !mobileMenuToggle ||
+    mainMenuItems.length === 0 ||
+    !flyout ||
+    flyoutItems.length === 0 ||
+    !flyoutOverlay
+  )
+    return;
 
-    if (
-      !mobileMenuToggle ||
-      mainMenuItems.length === 0 ||
-      !flyout ||
-      flyoutItems.length === 0 ||
-      !flyoutOverlay
-    )
-      return;
-
-    for (const menuItem of mainMenuItems) {
-      menuItem.addEventListener(
-        "click",
-        () => {
-          const identifier = menuItem.dataset.identifier;
-          identifier ? openFlyout(identifier) : closeFlyout();
-        },
-        { passive: true }
-      );
-    }
-
-    mobileMenuToggle.addEventListener(
+  for (const menuItem of mainMenuItems) {
+    menuItem.addEventListener(
       "click",
       () => {
-        const identifier = mobileMenuToggle.dataset.identifier;
-        if (mobileMenuToggle.classList.contains("active")) closeFlyout();
-        else if (identifier) openFlyout(identifier);
+        const identifier = menuItem.dataset.identifier;
+        identifier ? openFlyout(identifier) : closeFlyout();
       },
       { passive: true }
     );
+  }
 
-    flyoutOverlay.addEventListener("click", closeFlyout, { passive: true });
+  mobileMenuToggle.addEventListener(
+    "click",
+    () => {
+      const identifier = mobileMenuToggle.dataset.identifier;
+      if (mobileMenuToggle.classList.contains("active")) closeFlyout();
+      else if (identifier) openFlyout(identifier);
+    },
+    { passive: true }
+  );
 
-    document.addEventListener(
-      "keydown",
-      (event) => {
-        if (event.key === "Escape") closeFlyout();
-      },
-      { passive: true }
-    );
+  flyoutOverlay.addEventListener("click", closeFlyout, { passive: true });
 
-    window.addEventListener("resize", () => {
-      adjustFlyoutHeight();
-      const mobileMenuOpen =
-        header.querySelector("#mobile-menu.active") || false;
-      if (window.innerWidth >= 640 && mobileMenuOpen) closeFlyout();
-    });
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      if (event.key === "Escape") closeFlyout();
+    },
+    { passive: true }
+  );
 
-    function openFlyout(identifier) {
-      for (const menuItem of mainMenuItems) {
-        toggleElementByIdentifier(menuItem, identifier);
-      }
+  window.addEventListener("resize", () => {
+    adjustFlyoutHeight();
+    const mobileMenuOpen = header.querySelector("#mobile-menu.active") || false;
+    if (window.innerWidth >= 640 && mobileMenuOpen) closeFlyout();
+  });
 
-      for (const flyoutItem of flyoutItems) {
-        toggleElementByIdentifier(flyoutItem, identifier);
-      }
-
-      adjustFlyoutHeight();
-      flyout.classList.add("active");
-      flyoutOverlay.classList.add("active");
-      mobileMenuToggle.classList.add("active");
+  function openFlyout(identifier) {
+    for (const menuItem of mainMenuItems) {
+      toggleElementByIdentifier(menuItem, identifier);
     }
 
-    function adjustFlyoutHeight() {
-      const activeFlyoutItem = [...flyoutItems].filter((item) =>
-        item.classList.contains("active")
-      )[0];
-
-      if (!activeFlyoutItem) return;
-
-      const currentFlyoutItemHeight =
-        activeFlyoutItem.querySelector(".flyout-item-container")
-          ?.scrollHeight || "0fr";
-
-      for (const flyoutItem of flyoutItems) {
-        flyoutItem.style.setProperty(
-          "--flyout-item-height",
-          `${currentFlyoutItemHeight}px`
-        );
-      }
+    for (const flyoutItem of flyoutItems) {
+      toggleElementByIdentifier(flyoutItem, identifier);
     }
 
-    function closeFlyout() {
-      for (const menuItem of mainMenuItems) {
-        menuItem.classList.remove("active");
-      }
+    adjustFlyoutHeight();
+    flyout.classList.add("active");
+    flyoutOverlay.classList.add("active");
+    mobileMenuToggle.classList.add("active");
+  }
 
-      flyout.classList.remove("active");
-      flyoutOverlay.classList.remove("active");
-      mobileMenuToggle.classList.remove("active");
+  function adjustFlyoutHeight() {
+    const activeFlyoutItem = [...flyoutItems].filter((item) =>
+      item.classList.contains("active")
+    )[0];
+
+    if (!activeFlyoutItem) return;
+
+    const currentFlyoutItemHeight =
+      activeFlyoutItem.querySelector(".flyout-item-container")?.scrollHeight ||
+      "0fr";
+
+    for (const flyoutItem of flyoutItems) {
+      flyoutItem.style.setProperty(
+        "--flyout-item-height",
+        `${currentFlyoutItemHeight}px`
+      );
     }
   }
 
-  function toggleElementByIdentifier(element, identifier) {
-    element.classList.toggle(
-      "active",
-      element.dataset.identifier === identifier
-    );
+  function closeFlyout() {
+    for (const menuItem of mainMenuItems) {
+      menuItem.classList.remove("active");
+    }
+
+    flyout.classList.remove("active");
+    flyoutOverlay.classList.remove("active");
+    mobileMenuToggle.classList.remove("active");
   }
+}
+
+function toggleElementByIdentifier(element, identifier) {
+  element.classList.toggle("active", element.dataset.identifier === identifier);
+}
+
+function Header() {
+  window.addEventListener("DOMContentLoaded", initHeader, { passive: true });
 
   return (
     <header id="main-header">
