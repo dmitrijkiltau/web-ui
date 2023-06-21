@@ -1,8 +1,8 @@
 import { nanoid } from "nanoid";
 import logo from "../../logo.svg";
 import { IconClose, IconMenu } from "../../icons/Icons";
+import MenuItem from "../Menu/MenuItem";
 import "./Header.scss";
-import MenuItem from "./MenuItem";
 
 const menuItems = [
   {
