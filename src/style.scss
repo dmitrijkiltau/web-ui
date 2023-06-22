@@ -1,0 +1,9 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "fonts.scss";
+
+#root {
+  @apply min-h-screen grid grid-cols-1 justify-center;
+  grid-template-rows: 4rem 1fr min-content;
+}

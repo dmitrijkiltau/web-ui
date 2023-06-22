@@ -1,0 +1,132 @@
+#main-header {
+  .header {
+    @apply z-[1000] fixed top-0 left-0 w-full h-16;
+    @apply border-b border-b-primary;
+
+    .section-container {
+      @apply flex justify-between items-center gap-8;
+    }
+  }
+
+  .menu-item {
+    --bg-size: 0% 2px;
+    --active-gradient: linear-gradient(currentColor, currentColor);
+
+    a,
+    button {
+      @apply no-underline w-full h-full flex items-center justify-between;
+      @apply py-1 px-0.5 cursor-pointer transition-all duration-200;
+      background: var(--active-gradient) no-repeat left bottom;
+      background-size: var(--bg-size);
+    }
+
+    &:hover,
+    &:focus,
+    &.current,
+    &.active {
+      --bg-size: 100% 2px;
+    }
+  }
+}
+
+#main-logo {
+  @apply w-8 h-8 grid place-items-center;
+}
+
+#main-menu {
+  @apply msm:hidden;
+
+  menu {
+    @apply flex justify-between items-center gap-8;
+  }
+}
+
+#mobile-menu {
+  @apply sm:hidden;
+}
+
+#mobile-menu-toggle {
+  @apply sm:hidden grid place-items-center;
+  @apply border-none cursor-pointer;
+
+  svg {
+    @apply col-start-1 row-start-1 duration-200 ease-out;
+  }
+
+  &.active .icon-menu,
+  &:not(.active) .icon-close {
+    @apply opacity-0 scale-0;
+  }
+}
+
+#main-flyout {
+  @apply z-[900] fixed top-16 left-0 w-full;
+  @apply border-b border-b-primary duration-500 ease-out;
+  @apply max-h-[calc(100vh-4rem)] overflow-y-auto;
+
+  &:not(.active) {
+    @apply pointer-events-none opacity-0 -translate-y-full;
+  }
+
+  .menu-item {
+    --default-gradient: linear-gradient(
+      hsl(0, 0%, 5%, 0.1),
+      hsl(0, 0%, 5%, 0.1)
+    );
+
+    a,
+    button {
+      @apply py-4 text-primary duration-500 ease-out;
+      background: var(--default-gradient) no-repeat left bottom / 100% 2px,
+        var(--active-gradient) no-repeat left bottom / var(--bg-size);
+    }
+  }
+
+  .section-container {
+    @apply h-full grid;
+  }
+
+  .flyout-item {
+    --flyout-item-height: 1fr;
+    @apply col-start-1 row-start-1 overflow-hidden;
+    @apply grid items-start duration-500 ease-out;
+    grid-template-rows: var(--flyout-item-height);
+
+    .flyout-item-container {
+      @apply flex msm:flex-col gap-8 overflow-hidden;
+      @apply duration-300 ease-out;
+    }
+
+    &:not(.active) {
+      --flyout-item-height: 0fr;
+      @apply pointer-events-none;
+
+      .flyout-item-container {
+        @apply opacity-0 -z-[1];
+      }
+    }
+
+    @screen sm {
+      menu.as-grid {
+        @apply grid grid-cols-2 gap-x-4;
+      }
+
+      .flyout-content {
+        @apply flex-[2];
+      }
+
+      .flyout-menu {
+        @apply flex-[3];
+      }
+    }
+  }
+}
+
+#flyout-overlay {
+  @apply z-[800] fixed top-0 left-0 w-full h-full backdrop-blur-md;
+  @apply bg-primary/10 duration-500 ease-out cursor-pointer;
+
+  &:not(.active) {
+    @apply pointer-events-none opacity-0;
+  }
+}
