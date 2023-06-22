@@ -12,6 +12,7 @@
   h6,
   .h6 {
     @apply [&:not(:first-child)]:mt-8 [&:not(:last-child)]:mb-4;
+    overflow-wrap: anywhere;
   }
 
   h1,
@@ -46,6 +47,6 @@
 
   p,
   .text {
-    @apply text-base [&:not(:last-child)]:mb-4;
+    @apply text-base [&:not(:last-child)]:mb-4 break-words;
   }
 }

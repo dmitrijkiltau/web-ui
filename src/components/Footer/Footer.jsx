@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import Section from "../Section/Section";
 import MenuItem from "../Menu/MenuItem";
 import "./Footer.scss";
 
@@ -43,7 +44,7 @@ function Footer() {
 
   return (
     <footer id="main-footer">
-      <div class="footer-container">
+      <Section id="footer-container" width="large" bg="dark" py="large">
         <div class="footer-item">
           <h3>What's a Footer?</h3>
           <p>
@@ -75,9 +76,9 @@ function Footer() {
             </For>
           </menu>
         </div>
-      </div>
+      </Section>
 
-      <div class="footer-bar">
+      <Section id="footer-bar" width="large" bg="dark" pb="large">
         <div class="footer-copyright">
           <span>
             © <span id="footer-date"></span> Dmitrij{" "}
@@ -88,7 +89,7 @@ function Footer() {
         <menu class="footer-bar-menu">
           <For each={legalMenuItems}>{(item) => <MenuItem {...item} />}</For>
         </menu>
-      </div>
+      </Section>
     </footer>
   );
 }

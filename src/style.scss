@@ -4,5 +4,6 @@
 @import "fonts.scss";
 
 #root {
-  @apply flex flex-col min-h-screen;
+  @apply min-h-screen grid grid-cols-1 justify-center;
+  grid-template-rows: 4rem 1fr min-content;
 }
