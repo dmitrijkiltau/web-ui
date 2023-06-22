@@ -34,28 +34,20 @@
 }
 
 #main-menu {
+  @apply msm:hidden;
+
   menu {
     @apply flex justify-between items-center gap-8;
   }
-
-  @screen msm {
-    @apply hidden;
-  }
 }
 
-@screen sm {
-  #mobile-menu {
-    @apply hidden;
-  }
+#mobile-menu {
+  @apply sm:hidden;
 }
 
 #mobile-menu-toggle {
-  @apply grid grid-rows-1 grid-cols-1 place-items-center;
-  @apply bg-transparent border-none cursor-pointer;
-
-  @screen sm {
-    @apply hidden;
-  }
+  @apply sm:hidden grid place-items-center;
+  @apply border-none cursor-pointer;
 
   svg {
     @apply col-start-1 row-start-1 duration-200 ease-out;
@@ -91,7 +83,7 @@
   }
 
   .section-container {
-    @apply h-full grid grid-cols-1 grid-rows-1;
+    @apply h-full grid;
   }
 
   .flyout-item {
@@ -118,21 +110,21 @@
       menu.as-grid {
         @apply grid grid-cols-2 gap-x-4;
       }
-    }
 
-    .flyout-content {
-      @apply sm:flex-[2];
-    }
+      .flyout-content {
+        @apply flex-[2];
+      }
 
-    .flyout-menu {
-      @apply sm:flex-[3];
+      .flyout-menu {
+        @apply flex-[3];
+      }
     }
   }
 }
 
 #flyout-overlay {
-  @apply z-[800] fixed top-0 left-0 w-full h-full blur-sm;
-  @apply bg-primary-5/10 duration-500 ease-out cursor-pointer;
+  @apply z-[800] fixed top-0 left-0 w-full h-full backdrop-blur-md;
+  @apply bg-primary/10 duration-500 ease-out cursor-pointer;
 
   &:not(.active) {
     @apply pointer-events-none opacity-0;

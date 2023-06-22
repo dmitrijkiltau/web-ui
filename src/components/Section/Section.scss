@@ -26,29 +26,9 @@
   }
 
   &__bg-dark {
+    --color-headline: hsl(0, 0%, 100%);
+    --color-body: hsl(0, 0%, 80%);
     @apply bg-primary-5;
-
-    h1,
-    .h1,
-    h2,
-    .h2,
-    h3,
-    .h3,
-    h4,
-    .h4,
-    h5,
-    .h5,
-    h6,
-    .h6,
-    a {
-      @apply text-primary-100;
-    }
-
-    p,
-    span,
-    .text {
-      @apply text-primary-80;
-    }
   }
 
   $sizes: (

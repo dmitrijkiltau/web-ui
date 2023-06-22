@@ -30,11 +30,11 @@ module.exports = {
       'msm': { 'max': '639px' }
     },
     fontSize: {
-      'h1': ['3.5rem', '3.75rem'],
-      'h2': ['2.5rem', '2.5rem'],
-      'h3': ['2rem', '2.25rem'],
-      'h4': ['1.25rem', '1.5rem'],
-      'h5': ['1rem', '1.5rem'],
+      'h1': ['clamp(3.5rem, 10vw, 5rem)', 'clamp(4.125rem, 10vw, 5.625rem)'],
+      'h2': ['clamp(2rem, 10vw, 2.5rem)', 'clamp(2.25rem, 10vw, 2.5rem)'],
+      'h3': ['clamp(1.25rem, 10vw, 2rem)', 'clamp(1.5rem, 10vw, 2.25rem)'],
+      'h4': ['clamp(1rem, 10vw, 1.25rem)', 'clamp(1.25rem, 10vw, 1.5rem)'],
+      'h5': ['clamp(0.875rem, 10vw, 1rem)', 'clamp(1rem, 10vw, 1.5rem)'],
       'h6': ['0.875rem', '1.25rem'],
       'base': ['1rem', '1.25rem'],
     },

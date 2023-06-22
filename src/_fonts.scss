@@ -1,4 +1,9 @@
 @layer base {
+  :root {
+    --color-headline: hsl(0, 0%, 0%);
+    --color-body: hsl(0, 0%, 5%);
+  }
+
   h1,
   .h1,
   h2,
@@ -10,9 +15,12 @@
   h5,
   .h5,
   h6,
-  .h6 {
+  .h6,
+  a, .c-link,
+  p, .c-text {
     @apply [&:not(:first-child)]:mt-8 [&:not(:last-child)]:mb-4;
     overflow-wrap: anywhere;
+    color: var(--color-headline);
   }
 
   h1,
@@ -46,7 +54,10 @@
   }
 
   p,
-  .text {
-    @apply text-base [&:not(:last-child)]:mb-4 break-words;
+  span,
+  .c-text {
+    @apply text-base;
+    overflow-wrap: anywhere;
+    color: var(--color-body);
   }
 }
