@@ -2,10 +2,7 @@ import { nanoid } from "nanoid";
 import "./Section.scss";
 
 function Section(props) {
-  const { id, width, bg, my, mt, mb, py, pt, pb, children } = props;
-
-  const widthClass = width ?? false;
-  const bgClass = bg ? `bg-${bg}` : false;
+  const { id, className, width, bg, my, mt, mb, py, pt, pb, children } = props;
 
   const marginY = my ? `my-${my}` : false;
   const marginTop = mt ? `mt-${mt}` : false;
@@ -17,19 +14,20 @@ function Section(props) {
   const paddingBottom = pb ? `pb-${pb}` : false;
   const paddingClass = [paddingY, paddingTop, paddingBottom];
 
-  const className = [
+  const classNames = [
     "section",
-    widthClass,
-    bgClass,
+    className,
+    width ?? false,
+    bg ? `bg-${bg}` : false,
     ...marginClass,
     ...paddingClass,
   ]
     .filter((item) => item !== false)
-    .map((item, index) => (index === 0 ? item : `section__${item}`))
+    .map((item, index) => (index < 2 ? item : `section__${item}`))
     .join(" ");
 
   return (
-    <section id={id ?? nanoid()} class={className}>
+    <section id={id ?? nanoid()} class={classNames}>
       <div class="section-container">{children}</div>
     </section>
   );

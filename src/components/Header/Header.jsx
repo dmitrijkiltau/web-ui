@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import logo from "../../logo.svg";
 import { IconClose, IconMenu } from "../../icons/Icons";
+import Section from "../Section/Section";
 import MenuItem from "../Menu/MenuItem";
 import "./Header.scss";
 
@@ -205,68 +206,64 @@ function Header() {
 
   return (
     <header id="main-header">
-      <div class="header">
-        <div class="header-container">
-          <a href="/" id="main-logo">
-            <img src={logo} alt="logo" />
-          </a>
+      <Section className="header" width="medium" bg="white">
+        <a href="/" id="main-logo">
+          <img src={logo} alt="logo" />
+        </a>
 
-          <nav id="main-menu">
-            <menu>
-              <For each={menuItems}>{(item) => <MenuItem {...item} />}</For>
-            </menu>
-          </nav>
+        <nav id="main-menu">
+          <menu>
+            <For each={menuItems}>{(item) => <MenuItem {...item} />}</For>
+          </menu>
+        </nav>
 
-          <button id="mobile-menu-toggle" data-identifier="main-menu">
-            <IconMenu />
-            <IconClose />
-          </button>
-        </div>
-      </div>
+        <button id="mobile-menu-toggle" data-identifier="main-menu">
+          <IconMenu />
+          <IconClose />
+        </button>
+      </Section>
 
-      <div id="main-flyout">
-        <div class="flyout-container">
-          <div id="mobile-menu" class="flyout-item" data-identifier="main-menu">
-            <div class="flyout-item-container">
-              <nav class="flyout-menu">
-                <menu class={menuItems.length > 4 ? "as-grid" : null}>
-                  <For each={menuItems}>{(item) => <MenuItem {...item} />}</For>
-                </menu>
-              </nav>
-            </div>
+      <Section id="main-flyout" width="medium" bg="white" pt="medium" pb="large">
+        <div id="mobile-menu" class="flyout-item" data-identifier="main-menu">
+          <div class="flyout-item-container">
+            <nav class="flyout-menu">
+              <menu class={menuItems.length > 4 ? "as-grid" : null}>
+                <For each={menuItems}>{(item) => <MenuItem {...item} />}</For>
+              </menu>
+            </nav>
           </div>
-
-          <For each={menuItems}>
-            {(item) => (
-              <Show when={item.subItems}>
-                <div class="flyout-item" data-identifier={item.id}>
-                  <div class="flyout-item-container">
-                    <Show when={item.teaserTitle || item.teaserText}>
-                      <div class="flyout-content">
-                        <Show when={item.teaserTitle}>
-                          <h3>{item.teaserTitle}</h3>
-                        </Show>
-
-                        <Show when={item.teaserText}>
-                          <p>{item.teaserText}</p>
-                        </Show>
-                      </div>
-                    </Show>
-
-                    <nav class="flyout-menu">
-                      <menu class={item.subItems.length > 4 ? "as-grid" : null}>
-                        <For each={item.subItems}>
-                          {(subItem) => <MenuItem {...subItem} />}
-                        </For>
-                      </menu>
-                    </nav>
-                  </div>
-                </div>
-              </Show>
-            )}
-          </For>
         </div>
-      </div>
+
+        <For each={menuItems}>
+          {(item) => (
+            <Show when={item.subItems}>
+              <div class="flyout-item" data-identifier={item.id}>
+                <div class="flyout-item-container">
+                  <Show when={item.teaserTitle || item.teaserText}>
+                    <div class="flyout-content">
+                      <Show when={item.teaserTitle}>
+                        <h3>{item.teaserTitle}</h3>
+                      </Show>
+
+                      <Show when={item.teaserText}>
+                        <p>{item.teaserText}</p>
+                      </Show>
+                    </div>
+                  </Show>
+
+                  <nav class="flyout-menu">
+                    <menu class={item.subItems.length > 4 ? "as-grid" : null}>
+                      <For each={item.subItems}>
+                        {(subItem) => <MenuItem {...subItem} />}
+                      </For>
+                    </menu>
+                  </nav>
+                </div>
+              </div>
+            </Show>
+          )}
+        </For>
+      </Section>
 
       <div id="flyout-overlay"></div>
     </header>
