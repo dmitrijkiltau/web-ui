@@ -105,6 +105,7 @@ function initHeader() {
   const flyout = header.querySelector("#main-flyout");
   const flyoutItems = header.querySelectorAll("#main-flyout .flyout-item");
   const flyoutOverlay = header.querySelector("#flyout-overlay");
+  let initialOpen = true;
 
   if (
     !mobileMenuToggle ||
@@ -161,10 +162,13 @@ function initHeader() {
       toggleElementByIdentifier(flyoutItem, identifier);
     }
 
-    adjustFlyoutHeight();
+    if (!initialOpen) adjustFlyoutHeight();
+
     flyout.classList.add("active");
     flyoutOverlay.classList.add("active");
     mobileMenuToggle.classList.add("active");
+
+    initialOpen = false;
   }
 
   function adjustFlyoutHeight() {
@@ -223,7 +227,13 @@ function Header() {
         </button>
       </Section>
 
-      <Section id="main-flyout" width="medium" bg="white" pt="medium" pb="large">
+      <Section
+        id="main-flyout"
+        width="medium"
+        bg="white"
+        pt="medium"
+        pb="large"
+      >
         <div id="mobile-menu" class="flyout-item" data-identifier="main-menu">
           <div class="flyout-item-container">
             <nav class="flyout-menu">

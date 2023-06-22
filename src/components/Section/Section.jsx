@@ -15,15 +15,14 @@ function Section(props) {
   const paddingClass = [paddingY, paddingTop, paddingBottom];
 
   const classNames = [
-    "section",
-    className,
+    "section" + (className ? ` ${className}` : ""),
     width ?? false,
     bg ? `bg-${bg}` : false,
     ...marginClass,
     ...paddingClass,
   ]
     .filter((item) => item !== false)
-    .map((item, index) => (index < 2 ? item : `section__${item}`))
+    .map((item, index) => (index === 0 ? item : `section__${item}`))
     .join(" ");
 
   return (
