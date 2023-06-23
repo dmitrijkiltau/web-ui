@@ -16,11 +16,20 @@
   .h5,
   h6,
   .h6,
-  a, .c-link,
-  p, .c-text {
-    @apply [&:not(:first-child)]:mt-8 [&:not(:last-child)]:mb-4;
+  a,
+  .c-link,
+  p,
+  .c-text {
     overflow-wrap: anywhere;
     color: var(--color-headline);
+
+    &:not(:first-child) {
+      @apply mt-8;
+    }
+
+    &:not(:last-child) {
+      @apply mb-4;
+    }
   }
 
   h1,
