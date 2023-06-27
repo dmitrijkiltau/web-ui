@@ -3,6 +3,12 @@
 @import "tailwindcss/utilities";
 @import "fonts.scss";
 
+@layer base {
+  img {
+    @apply w-full max-w-full;
+  }
+}
+
 #root {
   @apply min-h-screen grid grid-cols-1 justify-center;
   grid-template-rows: 4rem 1fr min-content;

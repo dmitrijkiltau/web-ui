@@ -1,6 +1,9 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Section from "./components/Section/Section";
+import TextImage from "./components/TextImage/TextImage";
+
+import image from "./assets/images/matt-hardy-Wzcky7yl1MY-unsplash.jpg";
 
 function App() {
   return (
@@ -8,8 +11,8 @@ function App() {
       <Header />
 
       <main>
-        <Section width="large" my="large">
-          <h1>You can have that back now scratch at door to be let outside</h1>
+        <TextImage imageSrc={image}>
+          <h1>Scratch at door to be let outside</h1>
           <h4>Refuse to drink water except out of someone's glass</h4>
           <p>
             Climb into cupboard and lick the salt off rice cakes but nyan nyan
@@ -18,35 +21,22 @@ function App() {
             machine. Pounce on unsuspecting person cat fur is the new black and
             cat jumps and falls onto the couch purrs and wakes up in a new
             dimension filled with kitty litter meow meow yummy there is a bunch
-            of cats hanging around eating catnip . I heard this rumor where the
-            humans are our owners, pfft, what do they know?! get away from me
-            stupid dog yet hiss at vacuum cleaner.
+            of cats hanging around eating catnip.
           </p>
-        </Section>
+        </TextImage>
 
         <Section width="medium" bg="gray" py="large">
-          <h2>You can have that back now scratch at door to be let outside</h2>
+          <h2>Stare out the window</h2>
           <p>
-            Stare out the window poop on couch so floof tum, tickle bum,
-            jellybean footies curly toes cats go for world domination tweeting a
-            baseball avoid the new toy and just play with the box it came in
-            thinking about you i'm joking it's food always food. Meow meow eat
-            and than sleep on your face. Reaches under door into adjacent room
-            instantly break out into full speed gallop across the house for no
-            reason but go crazy with excitement when plates are clanked together
-            signalling the arrival of cat food and i like to spend my days
-            sleeping and eating fishes that my human fished for me we live on a
-            luxurious yacht, sailing proudly under the sun, i like to walk on
-            the deck, watching the horizon, dreaming of a good bowl of milk.
-            Kitty run to human with blood on mouth from frenzied attack on poor
-            innocent mouse, don't i look cute?. Purrr purr littel cat, little
-            cat purr purr paw at your fat belly slap kitten brother with paw for
-            chirp at birds, love blinks and purr purr purr purr yawn x. Who's
-            the baby. Attack dog, run away and pretend to be victim lick plastic
-            bags. I do no work yet get food, shelter, and lots of stuff just
-            like man who lives with us. Scratch me now! stop scratching me!
-            twitch tail in permanent irritation and sit as close as possible to
-            warm fire without sitting on cold floor stinky cat.
+            Couch so floof tum, tickle bum, jellybean footies curly toes cats go
+            for world domination tweeting a baseball avoid the new toy and just
+            play with the box it came in thinking about you i'm joking it's food
+            always food.
+          </p>
+          <p>
+            Meow meow eat and than sleep on your face. Reaches under door into
+            adjacent room instantly break out into full speed gallop across the
+            house for no reason but go crazy with excitement.
           </p>
         </Section>
 
