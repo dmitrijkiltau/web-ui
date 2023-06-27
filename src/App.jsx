@@ -3,15 +3,22 @@ import Footer from "./components/Footer/Footer";
 import Section from "./components/Section/Section";
 import TextImage from "./components/TextImage/TextImage";
 
-import image from "./assets/images/matt-hardy-Wzcky7yl1MY-unsplash.jpg";
-
 function App() {
+  const sizes = [
+    [960, 768],
+    [768, 960],
+    [1024, 1280],
+    [1080, 1080],
+  ];
+  const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+  const imageUrl = `https://picsum.photos/${randomSize.join("/")}`;
+
   return (
     <>
       <Header />
 
       <main>
-        <TextImage imageSrc={image}>
+        <TextImage imageSrc={imageUrl}>
           <h1>Scratch at door to be let outside</h1>
           <h4>Refuse to drink water except out of someone's glass</h4>
           <p>
