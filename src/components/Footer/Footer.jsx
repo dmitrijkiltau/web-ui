@@ -46,7 +46,7 @@ function Footer() {
     <footer id="main-footer">
       <Section id="footer-container" width="large" bg="dark" py="large">
         <div class="footer-item">
-          <h3>What's a Footer?</h3>
+          <h4>What's a Footer?</h4>
           <p>
             A footer is an integral part of every webpage, typically located at
             the bottom. It consistently provides information and links across
@@ -56,7 +56,7 @@ function Footer() {
         </div>
 
         <div class="footer-item">
-          <h3>Footer's Role</h3>
+          <h4>Footer's Role</h4>
           <p>
             The footer plays a crucial role in user navigation and information.
             Often overlooked, it serves as a "safety net" for visitors unable to
@@ -68,7 +68,7 @@ function Footer() {
         </div>
 
         <div class="footer-item">
-          <h3>More</h3>
+          <h4>More</h4>
 
           <menu class="footer-menu">
             <For each={menuItems}>
