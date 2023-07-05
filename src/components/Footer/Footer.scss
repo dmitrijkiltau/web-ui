@@ -33,6 +33,21 @@
   #footer-container {
     .section-container {
       @apply grid gap-x-16 gap-y-8;
+    }
+  }
+
+  &.cols-2 #footer-container {
+    .section-container {
+      @apply grid-cols-2 msm:grid-cols-1;
+    }
+
+    .footer-item {
+      @apply first:col-span-1;
+    }
+  }
+
+  &.cols-3 #footer-container {
+    .section-container {
       @apply grid-cols-3 mlg:grid-cols-2 msm:grid-cols-1;
     }
 

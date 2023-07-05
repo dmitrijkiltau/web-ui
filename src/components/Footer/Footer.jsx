@@ -1,3 +1,5 @@
+import { useI18n } from "@amoutonbrady/solid-i18n";
+import { useBasePath } from "../../hooks/useTranslation";
 import { addPassiveListener } from "../../helper/passiveListener";
 import { footerMenuItems, legalMenuItems } from "../../data/menuItems";
 import Section from "../Section/Section";
@@ -5,35 +7,20 @@ import MenuItem from "../MenuItem/MenuItem";
 import "./Footer.scss";
 
 function Footer() {
+  const [t] = useI18n();
+  const basePath = useBasePath();
   addPassiveListener(window, "DOMContentLoaded", initFooter);
 
   return (
-    <footer id="main-footer">
-      <Section id="footer-container" width="large" bg="dark" py="large">
+    <footer id="main-footer" class="cols-2">
+      <Section id="footer-container" width="medium" bg="dark" py="large">
         <div class="footer-item">
-          <h4>What's a Footer?</h4>
-          <p>
-            A footer is an integral part of every webpage, typically located at
-            the bottom. It consistently provides information and links across
-            the site, often containing key details such as contact info, privacy
-            policies, terms of use, and links to other significant pages.
-          </p>
+          <h4>{t("footer.title1")}</h4>
+          <p>{t("footer.description1")}</p>
         </div>
 
         <div class="footer-item">
-          <h4>Footer's Role</h4>
-          <p>
-            The footer plays a crucial role in user navigation and information.
-            Often overlooked, it serves as a "safety net" for visitors unable to
-            find what they're seeking. A well-designed footer aids users in
-            navigating the website, quickly locating vital information, and
-            fostering trust by providing important company details and legal
-            information.
-          </p>
-        </div>
-
-        <div class="footer-item">
-          <h4>More</h4>
+          <h4>{t("footer.title2")}</h4>
 
           <menu class="footer-menu">
             <For each={footerMenuItems}>
@@ -43,11 +30,11 @@ function Footer() {
         </div>
       </Section>
 
-      <Section id="footer-bar" width="large" bg="dark" pb="large">
+      <Section id="footer-bar" width="medium" bg="dark" pb="large">
         <div class="footer-copyright">
           <span>
             © <span id="footer-date"></span> Dmitrij{" "}
-            <a href="https://kiltau.com/">Kiltau</a>.
+            <a href={basePath}>Kiltau</a>.
           </span>
         </div>
 
