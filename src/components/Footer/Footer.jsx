@@ -1,46 +1,11 @@
-import { nanoid } from "nanoid";
+import { addPassiveListener } from "../../helper/passiveListener";
+import { footerMenuItems, legalMenuItems } from "../../data/menuItems";
 import Section from "../Section/Section";
-import MenuItem from "../Menu/MenuItem";
+import MenuItem from "../MenuItem/MenuItem";
 import "./Footer.scss";
 
-const menuItems = [
-  {
-    id: nanoid(),
-    name: "FAQ",
-    link: "/faq",
-    target: "_self",
-  },
-  {
-    id: nanoid(),
-    name: "Contact",
-    link: "/contact",
-    target: "_self",
-  },
-];
-
-const legalMenuItems = [
-  {
-    id: nanoid(),
-    name: "Legal Notice",
-    link: "/legal-notice",
-    target: "_self",
-  },
-  {
-    id: nanoid(),
-    name: "Privacy Policy",
-    link: "/privacy-policy",
-    target: "_self",
-  },
-];
-
-function initFooter() {
-  const footerDate = document.querySelector("#footer-date");
-  if (!footerDate) return;
-  footerDate.textContent = new Date().getFullYear();
-}
-
 function Footer() {
-  window.addEventListener("DOMContentLoaded", initFooter, { passive: true });
+  addPassiveListener(window, "DOMContentLoaded", initFooter);
 
   return (
     <footer id="main-footer">
@@ -71,7 +36,7 @@ function Footer() {
           <h4>More</h4>
 
           <menu class="footer-menu">
-            <For each={menuItems}>
+            <For each={footerMenuItems}>
               {(item) => <MenuItem {...item} showIcon={true} />}
             </For>
           </menu>
@@ -92,6 +57,12 @@ function Footer() {
       </Section>
     </footer>
   );
+}
+
+function initFooter() {
+  const footerDate = document.querySelector("#footer-date");
+  if (!footerDate) return;
+  footerDate.textContent = new Date().getFullYear();
 }
 
 export default Footer;

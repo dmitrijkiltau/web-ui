@@ -1,217 +1,22 @@
-import { nanoid } from "nanoid";
+import { useI18n } from "@amoutonbrady/solid-i18n";
+import { useBasePath } from "../../hooks/useTranslation";
+import { addPassiveListener } from "../../helper/passiveListener";
 import logo from "../../logo.svg";
 import { IconClose, IconMenu } from "../../icons/Icons";
 import Section from "../Section/Section";
-import MenuItem from "../Menu/MenuItem";
+import { menuItems } from "../../data/menuItems";
+import MenuItem from "../MenuItem/MenuItem";
 import "./Header.scss";
 
-const menuItems = [
-  {
-    id: nanoid(),
-    name: "Start",
-    link: "/",
-    target: "_self",
-  },
-  {
-    id: nanoid(),
-    name: "About",
-    subItems: [
-      {
-        id: nanoid(),
-        name: "FAQ",
-        link: "#",
-        target: "_self",
-      },
-      {
-        id: nanoid(),
-        name: "More",
-        link: "#",
-        target: "_self",
-      },
-      {
-        id: nanoid(),
-        name: "Contact",
-        link: "#",
-        target: "_self",
-      },
-    ],
-    teaserTitle: "About us",
-    teaserText: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    id: nanoid(),
-    name: "Social",
-    subItems: [
-      {
-        id: nanoid(),
-        name: "Github",
-        link: "https://github.com/dmitrijkiltau",
-        target: "_blank",
-      },
-      {
-        id: nanoid(),
-        name: "Twitter",
-        link: "https://twitter.com/einfachdima",
-        target: "_blank",
-      },
-      {
-        id: nanoid(),
-        name: "Instagram",
-        link: "https://instagram.com/einfach.dima",
-        target: "_blank",
-      },
-      {
-        id: nanoid(),
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/dmitrij-kiltau-70bb4b1bb",
-        target: "_blank",
-      },
-      {
-        id: nanoid(),
-        name: "Xing",
-        link: "https://www.xing.com/profile/Dmitrij_Kiltau",
-        target: "_blank",
-      },
-      {
-        id: nanoid(),
-        name: "PayPal",
-        link: "https://paypal.me/kiltau",
-        target: "_blank",
-      },
-      {
-        id: nanoid(),
-        name: "Quora",
-        link: "https://de.quora.com/profile/Dmitrij-Kiltau",
-        target: "_blank",
-      },
-      {
-        id: nanoid(),
-        name: "Facebook",
-        link: "https://facebook.com/dmitrijkiltau",
-        target: "_blank",
-      },
-    ],
-  },
-];
-
-function initHeader() {
-  const header = document.querySelector("#main-header");
-  if (!header) return;
-
-  const mobileMenuToggle = header.querySelector("#mobile-menu-toggle");
-  const mainMenuItems = header.querySelectorAll(
-    "#main-menu .menu-item, #mobile-menu .menu-item"
-  );
-  const flyout = header.querySelector("#main-flyout");
-  const flyoutItems = header.querySelectorAll("#main-flyout .flyout-item");
-  const flyoutOverlay = header.querySelector("#flyout-overlay");
-  let initialOpen = true;
-
-  if (
-    !mobileMenuToggle ||
-    mainMenuItems.length === 0 ||
-    !flyout ||
-    flyoutItems.length === 0 ||
-    !flyoutOverlay
-  )
-    return;
-
-  for (const menuItem of mainMenuItems) {
-    menuItem.addEventListener(
-      "click",
-      () => {
-        const identifier = menuItem.dataset.identifier;
-        identifier ? openFlyout(identifier) : closeFlyout();
-      },
-      { passive: true }
-    );
-  }
-
-  mobileMenuToggle.addEventListener(
-    "click",
-    () => {
-      const identifier = mobileMenuToggle.dataset.identifier;
-      if (mobileMenuToggle.classList.contains("active")) closeFlyout();
-      else if (identifier) openFlyout(identifier);
-    },
-    { passive: true }
-  );
-
-  flyoutOverlay.addEventListener("click", closeFlyout, { passive: true });
-
-  document.addEventListener(
-    "keydown",
-    (event) => {
-      if (event.key === "Escape") closeFlyout();
-    },
-    { passive: true }
-  );
-
-  window.addEventListener("resize", () => {
-    adjustFlyoutHeight();
-    const mobileMenuOpen = header.querySelector("#mobile-menu.active") || false;
-    if (window.innerWidth >= 640 && mobileMenuOpen) closeFlyout();
-  });
-
-  function openFlyout(identifier) {
-    for (const menuItem of mainMenuItems) {
-      toggleElementByIdentifier(menuItem, identifier);
-    }
-
-    for (const flyoutItem of flyoutItems) {
-      toggleElementByIdentifier(flyoutItem, identifier);
-    }
-
-    if (!initialOpen) adjustFlyoutHeight();
-
-    flyout.classList.add("active");
-    flyoutOverlay.classList.add("active");
-    mobileMenuToggle.classList.add("active");
-
-    initialOpen = false;
-  }
-
-  function adjustFlyoutHeight() {
-    const activeFlyoutItem = [...flyoutItems].filter((item) =>
-      item.classList.contains("active")
-    )[0];
-
-    if (!activeFlyoutItem) return;
-
-    const currentFlyoutItemHeight =
-      activeFlyoutItem.querySelector(".flyout-item-container")?.scrollHeight ||
-      "0fr";
-
-    for (const flyoutItem of flyoutItems) {
-      flyoutItem.style.setProperty(
-        "--flyout-item-height",
-        `${currentFlyoutItemHeight}px`
-      );
-    }
-  }
-
-  function closeFlyout() {
-    for (const menuItem of mainMenuItems) {
-      menuItem.classList.remove("active");
-    }
-
-    flyout.classList.remove("active");
-    flyoutOverlay.classList.remove("active");
-    mobileMenuToggle.classList.remove("active");
-  }
-}
-
-function toggleElementByIdentifier(element, identifier) {
-  element.classList.toggle("active", element.dataset.identifier === identifier);
-}
-
 function Header() {
-  window.addEventListener("DOMContentLoaded", initHeader, { passive: true });
+  const [t] = useI18n();
+  const basePath = useBasePath();
+  addPassiveListener(window, "DOMContentLoaded", initHeader);
 
   return (
     <header id="main-header">
       <Section className="header" width="medium" bg="white">
-        <a href="/" id="main-logo">
+        <a href={basePath} id="main-logo" aria-label="Kiltau Logo">
           <img src={logo} alt="logo" />
         </a>
 
@@ -252,11 +57,11 @@ function Header() {
                   <Show when={item.teaserTitle || item.teaserText}>
                     <div class="flyout-content">
                       <Show when={item.teaserTitle}>
-                        <h3>{item.teaserTitle}</h3>
+                        <h2>{t(`menuItem.${item.teaserTitle}`)}</h2>
                       </Show>
 
                       <Show when={item.teaserText}>
-                        <p>{item.teaserText}</p>
+                        <p>{t(`menuItem.${item.teaserText}`)}</p>
                       </Show>
                     </div>
                   </Show>
@@ -278,6 +83,102 @@ function Header() {
       <div id="flyout-overlay"></div>
     </header>
   );
+}
+
+function initHeader() {
+  const header = document.querySelector("#main-header");
+  if (!header) return;
+
+  const mobileMenuToggle = header.querySelector("#mobile-menu-toggle");
+  const mainMenuItems = header.querySelectorAll(
+    "#main-menu .menu-item, #mobile-menu .menu-item"
+  );
+  const flyout = header.querySelector("#main-flyout");
+  const flyoutItems = header.querySelectorAll("#main-flyout .flyout-item");
+  const flyoutOverlay = header.querySelector("#flyout-overlay");
+  let initialOpen = true;
+
+  if (
+    !mobileMenuToggle ||
+    mainMenuItems.length === 0 ||
+    !flyout ||
+    flyoutItems.length === 0 ||
+    !flyoutOverlay
+  )
+    return;
+
+  for (const menuItem of mainMenuItems) {
+    addPassiveListener(menuItem, "click", () => {
+      const identifier = menuItem.dataset.identifier;
+      identifier ? openFlyout(identifier) : closeFlyout();
+    });
+  }
+
+  addPassiveListener(mobileMenuToggle, "click", () => {
+    const identifier = mobileMenuToggle.dataset.identifier;
+    if (mobileMenuToggle.classList.contains("active")) closeFlyout();
+    else if (identifier) openFlyout(identifier);
+  });
+  addPassiveListener(flyoutOverlay, "click", closeFlyout);
+  addPassiveListener(document, "keydown", (event) => {
+    if (event.key === "Escape") closeFlyout();
+  });
+  addPassiveListener(window, "resize", () => {
+    adjustFlyoutHeight();
+    const mobileMenuOpen = header.querySelector("#mobile-menu.active") || false;
+    if (window.innerWidth >= 640 && mobileMenuOpen) closeFlyout();
+  });
+
+  function openFlyout(identifier) {
+    for (const menuItem of mainMenuItems) {
+      toggleElementByIdentifier(menuItem, identifier);
+    }
+
+    for (const flyoutItem of flyoutItems) {
+      toggleElementByIdentifier(flyoutItem, identifier);
+    }
+
+    if (!initialOpen) adjustFlyoutHeight();
+
+    flyout.classList.add("active");
+    flyoutOverlay.classList.add("active");
+    mobileMenuToggle.classList.add("active");
+
+    initialOpen = false;
+  }
+
+  function adjustFlyoutHeight() {
+    const activeFlyoutItem = [...flyoutItems].filter((item) =>
+      item.classList.contains("active")
+    )[0];
+
+    if (!activeFlyoutItem) return;
+
+    const activeFlyoutItemHeight =
+      activeFlyoutItem.querySelector(".flyout-item-container")?.scrollHeight ||
+      "0fr";
+
+    for (const flyoutItem of flyoutItems) {
+      flyoutItem.style.setProperty(
+        "--flyout-item-height",
+        `${activeFlyoutItemHeight}px`
+      );
+    }
+  }
+
+  function closeFlyout() {
+    for (const menuItem of mainMenuItems) {
+      menuItem.classList.remove("active");
+    }
+
+    flyout.classList.remove("active");
+    flyoutOverlay.classList.remove("active");
+    mobileMenuToggle.classList.remove("active");
+  }
+}
+
+function toggleElementByIdentifier(element, identifier) {
+  element.classList.toggle("active", element.dataset.identifier === identifier);
 }
 
 export default Header;

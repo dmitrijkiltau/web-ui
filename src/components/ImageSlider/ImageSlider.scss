@@ -1,0 +1,72 @@
+.c-image-slider {
+  --animation-duration: 1000ms;
+  --animation-not-current: none;
+  --animation: none;
+  @apply grid overflow-hidden;
+
+  .c-image {
+    @apply row-start-1 col-start-1 aspect-video object-cover pointer-events-none;
+    animation-duration: var(--animation-duration);
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+
+    &.current {
+      @apply z-10;
+      animation-name: var(--animation);
+    }
+
+    &.prev {
+      @apply z-10;
+    }
+
+    &:not(.current) {
+      animation-name: var(--animation-not-current);
+    }
+  }
+
+  &.slide-left {
+    --animation: slideInLeft;
+    --animation-not-current: slideOutLeft;
+  }
+
+  &.slide-right {
+    --animation: slideInRight;
+    --animation-not-current: slideOutRight;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
