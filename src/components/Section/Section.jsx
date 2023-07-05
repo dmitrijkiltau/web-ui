@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { classnames } from "../../helper/classnames";
 import "./Section.scss";
 
 function Section(props) {
@@ -14,16 +15,13 @@ function Section(props) {
   const paddingBottom = pb ? `pb-${pb}` : false;
   const paddingClass = [paddingY, paddingTop, paddingBottom];
 
-  const classNames = [
+  const classNames = classnames([
     "section" + (className ? ` ${className}` : ""),
     width ?? false,
     bg ? `bg-${bg}` : false,
     ...marginClass,
     ...paddingClass,
-  ]
-    .filter((item) => item !== false)
-    .map((item, index) => (index === 0 ? item : `section__${item}`))
-    .join(" ");
+  ]);
 
   return (
     <section id={id ?? nanoid()} class={classNames}>

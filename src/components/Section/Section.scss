@@ -5,27 +5,27 @@
     @apply w-full max-w-full;
   }
 
-  &__large .section-container {
+  &.large .section-container {
     @apply max-w-screen-2xl;
   }
 
-  &__medium .section-container {
+  &.medium .section-container {
     @apply max-w-screen-lg;
   }
 
-  &__small .section-container {
+  &.small .section-container {
     @apply max-w-screen-sm;
   }
 
-  &__bg-white {
+  &.bg-white {
     @apply bg-primary-100;
   }
 
-  &__bg-gray {
+  &.bg-gray {
     @apply bg-primary-95;
   }
 
-  &__bg-dark {
+  &.bg-dark {
     --color-headline: hsl(0, 0%, 100%);
     --color-body: hsl(0, 0%, 80%);
     @apply bg-primary-5;
@@ -46,7 +46,7 @@
 
   @each $spacing-name, $spacing-value in $spacings {
     @each $size-name, $size-value in $sizes {
-      &__#{$spacing-name}-#{$size-name} {
+      &.#{$spacing-name}-#{$size-name} {
         #{$spacing-value}: $size-value;
       }
     }
@@ -59,7 +59,7 @@
 
   @each $spacing-name, $spacing-values in $spacingsY {
     @each $size-name, $size-value in $sizes {
-      &__#{$spacing-name}-#{$size-name} {
+      &.#{$spacing-name}-#{$size-name} {
         @each $spacing-value in $spacing-values {
           #{$spacing-value}: $size-value;
         }
