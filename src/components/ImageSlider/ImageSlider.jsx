@@ -1,6 +1,9 @@
 import { For } from "solid-js";
 import { classnames } from "../../helper/classnames";
-import { addPassiveListener, removePassiveListener } from "../../helper/passiveListener";
+import {
+  addPassiveListener,
+  removePassiveListener,
+} from "../../helper/passiveListener";
 import "./ImageSlider.scss";
 
 function ImageSlider(props) {
@@ -12,7 +15,14 @@ function ImageSlider(props) {
   return (
     <div class={classNames} id={id}>
       <For each={images}>
-        {(image, i) => <img src={image} class="c-image" alt={`Image ${i()}`} data-index={i()} />}
+        {(image, i) => (
+          <img
+            src={image}
+            class="c-image"
+            alt={`Image ${i()}`}
+            data-index={i()}
+          />
+        )}
       </For>
     </div>
   );

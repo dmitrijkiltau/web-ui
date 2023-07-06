@@ -12,15 +12,25 @@ export const languages = ["de", "en"];
 
 export function useTranslation(locale) {
   const location = useLocation();
-  let language = location.pathname.split("/")[1];
+  let browserLanguage = navigator.language || navigator.userLanguage;
+  browserLanguage = browserLanguage.split("-")[0];
+  let language = location.pathname.split("/")[1] || browserLanguage;
+
   if (!languages.includes(language)) language = "en";
+
+  if (
+    location.pathname.split("/")[1] !== language &&
+    !location.pathname.split("/").includes("robots.txt")
+  ) {
+    window.location.pathname = `/${language + location.pathname}`;
+  }
+
   document.documentElement.lang = language;
   locale(language);
 }
 
 export function useBasePath() {
-  const language = document.documentElement.lang;
-  return language === "en" ? "/" : `/${language}`;
+  return `/${document.documentElement.lang}`;
 }
 
 export function useDict() {

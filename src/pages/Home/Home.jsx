@@ -1,17 +1,13 @@
-import { useTranslation } from "../../hooks/useTranslation";
 import { useI18n } from "@amoutonbrady/solid-i18n";
+import { useTranslation } from "../../hooks/useTranslation";
 import DefaultLayout from "../../layout/Default";
 import Section from "../../components/Section/Section";
 import TextImage from "../../components/TextImage/TextImage";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
-import NotFound from "../NotFound/NotFound";
 
 function Home() {
   const [t, { locale }] = useI18n();
   useTranslation(locale);
-  if (locale() === "en" && window.location.pathname !== "/") {
-    return <NotFound />;
-  }
 
   const sizes = [
     [960, 768],

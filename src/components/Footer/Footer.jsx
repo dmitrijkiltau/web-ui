@@ -34,7 +34,7 @@ function Footer() {
         <div class="footer-copyright">
           <span>
             © <span id="footer-date"></span> Dmitrij{" "}
-            <a href={basePath}>Kiltau</a>.
+            <a href={basePath} aria-label={t("menuItem.home")}>Kiltau</a>.
           </span>
         </div>
 

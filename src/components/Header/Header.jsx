@@ -16,8 +16,8 @@ function Header() {
   return (
     <header id="main-header">
       <Section className="header" width="medium" bg="white">
-        <a href={basePath} id="main-logo" aria-label="Kiltau Logo">
-          <img src={logo} alt="logo" />
+        <a href={basePath} id="main-logo" aria-label={t("menuItem.home")}>
+          <img src={logo} alt="Logo" />
         </a>
 
         <nav id="main-menu">
