@@ -2,7 +2,24 @@
   --animation-duration: 1000ms;
   --animation-not-current: none;
   --animation: none;
-  @apply grid overflow-hidden;
+
+  &.slide-left {
+    --animation: slideInLeft;
+    --animation-not-current: slideOutLeft;
+  }
+
+  &.slide-right {
+    --animation: slideInRight;
+    --animation-not-current: slideOutRight;
+  }
+
+  .c-slider {
+    @apply relative;
+
+    .c-slides {
+      @apply grid overflow-hidden;
+    }
+  }
 
   .c-image {
     @apply row-start-1 col-start-1 aspect-video object-cover pointer-events-none;
@@ -24,14 +41,31 @@
     }
   }
 
-  &.slide-left {
-    --animation: slideInLeft;
-    --animation-not-current: slideOutLeft;
-  }
+  .c-indicators {
+    @apply md:absolute md:left-0 md:right-0 md:bottom-4 z-20;
+    @apply flex justify-center gap-3 mmd:mt-2;
 
-  &.slide-right {
-    --animation: slideInRight;
-    --animation-not-current: slideOutRight;
+    .c-indicator {
+      @apply w-6 h-6 grid place-items-center;
+      @apply duration-300 ease-out;
+
+      .c-line {
+        @apply w-full h-[2px] bg-primary-60 drop-shadow-[0_0_1px_hsl(0_0%_0%)];
+        @apply duration-300 ease-out pointer-events-none;
+      }
+
+      &:hover .c-line {
+        @apply bg-primary-80;
+      }
+
+      &.current {
+        @apply w-8 pointer-events-none;
+
+        .c-line {
+          @apply bg-primary-100;
+        }
+      }
+    }
   }
 }
 
