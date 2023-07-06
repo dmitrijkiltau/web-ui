@@ -2,7 +2,7 @@ import { useI18n } from "@amoutonbrady/solid-i18n";
 import { useBasePath } from "../../hooks/useTranslation";
 import { addPassiveListener } from "../../helper/passiveListener";
 import logo from "../../logo.svg";
-import { IconClose, IconMenu } from "../../icons/Icons";
+import { IconArrowRight, IconClose, IconMenu } from "../../icons/Icons";
 import Section from "../Section/Section";
 import { menuItems } from "../../data/menuItems";
 import MenuItem from "../MenuItem/MenuItem";
@@ -45,7 +45,11 @@ function Header() {
         pt="medium"
         pb="large"
       >
-        <div id="mobile-menu" class="flyout-item" data-identifier="main-menu">
+        <div
+          id="mobile-menu"
+          class="flyout-item active"
+          data-identifier="main-menu"
+        >
           <div class="flyout-item-container">
             <nav class="flyout-menu">
               <menu class={menuItems.length > 4 ? "as-grid" : null}>
@@ -60,17 +64,24 @@ function Header() {
             <Show when={item.subItems}>
               <div class="flyout-item" data-identifier={item.id}>
                 <div class="flyout-item-container">
-                  <Show when={item.teaserTitle || item.teaserText}>
-                    <div class="flyout-content">
-                      <Show when={item.teaserTitle}>
-                        <h2>{t(`menuItems.${item.teaserTitle}`)}</h2>
-                      </Show>
+                  <div class="flyout-content">
+                    <h3 class="c-title">
+                      <button
+                        class="menu-back"
+                        aria-label={t("header.menuBack")}
+                      >
+                        <IconArrowRight />
+                      </button>
 
-                      <Show when={item.teaserText}>
-                        <p>{t(`menuItems.${item.teaserText}`)}</p>
+                      <Show when={item.teaserTitle}>
+                        <span>{t(`menuItems.${item.teaserTitle}`)}</span>
                       </Show>
-                    </div>
-                  </Show>
+                    </h3>
+
+                    <Show when={item.teaserText}>
+                      <p>{t(`menuItems.${item.teaserText}`)}</p>
+                    </Show>
+                  </div>
 
                   <nav class="flyout-menu">
                     <menu class={item.subItems.length > 4 ? "as-grid" : null}>
@@ -99,10 +110,12 @@ function initHeader() {
   const mainMenuItems = header.querySelectorAll(
     "#main-menu .menu-item, #mobile-menu .menu-item"
   );
+  const backButtons = header.querySelectorAll(".menu-back");
   const flyout = header.querySelector("#main-flyout");
   const flyoutItems = header.querySelectorAll("#main-flyout .flyout-item");
   const flyoutOverlay = header.querySelector("#flyout-overlay");
   let initialOpen = true;
+  let previousFlyoutIdentifier = null;
 
   if (
     !mobileMenuToggle ||
@@ -110,13 +123,21 @@ function initHeader() {
     !flyout ||
     flyoutItems.length === 0 ||
     !flyoutOverlay
-  )
+  ) {
     return;
+  }
 
   for (const menuItem of mainMenuItems) {
     addPassiveListener(menuItem, "click", () => {
       const identifier = menuItem.dataset.identifier;
+      adjustFlyoutHeight(menuItem);
       identifier ? openFlyout(identifier) : closeFlyout();
+    });
+  }
+
+  for (const backButton of backButtons) {
+    addPassiveListener(backButton, "click", () => {
+      openFlyout(previousFlyoutIdentifier);
     });
   }
 
@@ -129,7 +150,10 @@ function initHeader() {
       label = mobileMenuToggle.dataset.closeLabel;
     } else {
       label = mobileMenuToggle.dataset.openLabel;
-      if (identifier) openFlyout(identifier);
+      if (identifier) {
+        previousFlyoutIdentifier = identifier;
+        openFlyout(identifier);
+      }
     }
 
     mobileMenuToggle.setAttribute("aria-label", label);
@@ -162,15 +186,13 @@ function initHeader() {
     initialOpen = false;
   }
 
-  function adjustFlyoutHeight() {
-    const activeFlyoutItem = [...flyoutItems].filter((item) =>
-      item.classList.contains("active")
-    )[0];
-
-    if (!activeFlyoutItem) return;
+  function adjustFlyoutHeight(element) {
+    const activeFlyoutItem =
+      element ??
+      [...flyoutItems].filter((item) => item.classList.contains("active"))[0];
 
     const activeFlyoutItemHeight =
-      activeFlyoutItem.querySelector(".flyout-item-container")?.scrollHeight ||
+      activeFlyoutItem?.querySelector(".flyout-item-container")?.scrollHeight ||
       "0fr";
 
     for (const flyoutItem of flyoutItems) {
@@ -182,13 +204,9 @@ function initHeader() {
   }
 
   function closeFlyout() {
-    for (const menuItem of mainMenuItems) {
-      menuItem.classList.remove("active");
+    for (const item of header.querySelectorAll(".active:not(.flyout-item)")) {
+      item.classList.remove("active");
     }
-
-    flyout.classList.remove("active");
-    flyoutOverlay.classList.remove("active");
-    mobileMenuToggle.classList.remove("active");
   }
 }
 

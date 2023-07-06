@@ -44,7 +44,7 @@
 
   h3,
   .h3 {
-    @apply text-h3 italic;
+    @apply text-h3 font-bold;
   }
 
   h4,
@@ -63,10 +63,13 @@
   }
 
   p,
-  span,
   .c-text {
     @apply text-base;
     overflow-wrap: anywhere;
+    color: var(--color-body);
+  }
+
+  span {
     color: var(--color-body);
   }
 }
