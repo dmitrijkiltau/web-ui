@@ -1,5 +1,5 @@
-export const de = {
-  menuItem: {
+export const deMenuItems = {
+  menuItems: {
     home: "Start",
     about: "Über mich",
     contact: "Kontakt",

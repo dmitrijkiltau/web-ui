@@ -1,4 +1,4 @@
-export const en = {
+export const enHome = {
   home: {
     title: "Hi, I'm Dima.",
     subtitle: "Frontend Developer",

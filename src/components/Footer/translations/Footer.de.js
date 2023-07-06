@@ -1,4 +1,4 @@
-export const de = {
+export const deFooter = {
   footer: {
     title1: "Wofür ist das?",
     description1:

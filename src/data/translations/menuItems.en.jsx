@@ -1,5 +1,5 @@
-export const en = {
-  menuItem: {
+export const enMenuItems = {
+  menuItems: {
     home: "Home",
     about: "About",
     contact: "Contact",

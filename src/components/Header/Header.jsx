@@ -26,7 +26,13 @@ function Header() {
           </menu>
         </nav>
 
-        <button id="mobile-menu-toggle" data-identifier="main-menu">
+        <button
+          id="mobile-menu-toggle"
+          data-identifier="main-menu"
+          aria-label={t("header.menuOpen")}
+          data-open-label={t("header.menuOpen")}
+          data-close-label={t("header.menuClose")}
+        >
           <IconMenu />
           <IconClose />
         </button>
@@ -57,11 +63,11 @@ function Header() {
                   <Show when={item.teaserTitle || item.teaserText}>
                     <div class="flyout-content">
                       <Show when={item.teaserTitle}>
-                        <h2>{t(`menuItem.${item.teaserTitle}`)}</h2>
+                        <h2>{t(`menuItems.${item.teaserTitle}`)}</h2>
                       </Show>
 
                       <Show when={item.teaserText}>
-                        <p>{t(`menuItem.${item.teaserText}`)}</p>
+                        <p>{t(`menuItems.${item.teaserText}`)}</p>
                       </Show>
                     </div>
                   </Show>
@@ -116,8 +122,17 @@ function initHeader() {
 
   addPassiveListener(mobileMenuToggle, "click", () => {
     const identifier = mobileMenuToggle.dataset.identifier;
-    if (mobileMenuToggle.classList.contains("active")) closeFlyout();
-    else if (identifier) openFlyout(identifier);
+    let label = mobileMenuToggle.getAttribute("aria-label");
+
+    if (mobileMenuToggle.classList.contains("active")) {
+      closeFlyout();
+      label = mobileMenuToggle.dataset.closeLabel;
+    } else {
+      label = mobileMenuToggle.dataset.openLabel;
+      if (identifier) openFlyout(identifier);
+    }
+
+    mobileMenuToggle.setAttribute("aria-label", label);
   });
   addPassiveListener(flyoutOverlay, "click", closeFlyout);
   addPassiveListener(document, "keydown", (event) => {

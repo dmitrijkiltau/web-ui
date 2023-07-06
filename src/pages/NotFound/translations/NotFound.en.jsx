@@ -1,4 +1,4 @@
-export const en = {
+export const enNotFound = {
   notFound: {
     title: "Error 404",
     description:

@@ -1,4 +1,4 @@
-export const de = {
+export const deHome = {
   home: {
     title: "Hi, ich bin Dima.",
     subtitle: "Frontend Entwickler",

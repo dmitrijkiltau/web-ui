@@ -1,4 +1,4 @@
-export const en = {
+export const enFooter = {
   footer: {
     title1: "What is this for?",
     description1:

@@ -14,7 +14,7 @@ function MenuItem(props) {
     "menu-item",
     hrefs.includes(window.location.pathname) ? "current" : false,
   ]);
-  const label = t(`menuItem.${name}`);
+  const label = t(`menuItems.${name}`);
 
   return (
     <li class={className} data-identifier={subItems && id}>
