@@ -6,6 +6,8 @@ import { Router, Routes, Route } from "@solidjs/router";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import NotFound from "./pages/NotFound/NotFound";
+import LegalNotice from "./pages/LegalNotice/LegalNotice";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import "./style.scss";
 
 const root = document.getElementById("root");
@@ -30,6 +32,8 @@ if (initialParam !== browserLanguage && !languages.includes(initialParam)) {
           <Routes>
             <Route path="/:language" component={Home} />
             <Route path="/:language/about" component={About} />
+            <Route path="/:language/legal-notice" component={LegalNotice} />
+            <Route path="/:language/privacy-policy" component={PrivacyPolicy} />
             <Route path="*" component={NotFound} />
           </Routes>
         </Router>

@@ -9,6 +9,10 @@ import { deHome } from "../pages/Home/translations/Home.de";
 import { enHome } from "../pages/Home/translations/Home.en";
 import { enAbout } from "../pages/About/translations/About.en";
 import { deAbout } from "../pages/About/translations/About.de";
+import { enLegalNotice } from "../pages/LegalNotice/translations/LegalNotice.en";
+import { deLegalNotice } from "../pages/LegalNotice/translations/LegalNotice.de";
+import { enPrivacyPolicy } from "../pages/PrivacyPolicy/translations/PrivacyPolicy.en";
+import { dePrivacyPolicy } from "../pages/PrivacyPolicy/translations/PrivacyPolicy.de";
 import { enNotFound } from "../pages/NotFound/translations/NotFound.en";
 import { deNotFound } from "../pages/NotFound/translations/NotFound.de";
 
@@ -39,7 +43,25 @@ export function useBasePath() {
 
 export function useDict() {
   return {
-    en: { ...enMenuItems, ...enHeader, ...enFooter, ...enHome, ...enAbout, ...enNotFound },
-    de: { ...deMenuItems, ...deHeader, ...deFooter, ...deHome, ...deAbout, ...deNotFound },
+    en: {
+      ...enMenuItems,
+      ...enHeader,
+      ...enFooter,
+      ...enHome,
+      ...enAbout,
+      ...enLegalNotice,
+      ...enPrivacyPolicy,
+      ...enNotFound,
+    },
+    de: {
+      ...deMenuItems,
+      ...deHeader,
+      ...deFooter,
+      ...deHome,
+      ...deAbout,
+      ...deLegalNotice,
+      ...dePrivacyPolicy,
+      ...deNotFound,
+    },
   };
 }

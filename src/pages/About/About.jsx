@@ -21,7 +21,7 @@ function About() {
   return (
     <DefaultLayout>
       <Section width="small" bg="gray" py="large">
-        <h2>{t('about.title')}</h2>
+        <h1>{t('about.title')}</h1>
         <p>{t('about.description')}</p>
       </Section>
 
