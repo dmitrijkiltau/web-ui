@@ -7,6 +7,8 @@ import { enFooter } from "../components/Footer/translations/Footer.en";
 import { deFooter } from "../components/Footer/translations/Footer.de";
 import { deHome } from "../pages/Home/translations/Home.de";
 import { enHome } from "../pages/Home/translations/Home.en";
+import { enAbout } from "../pages/About/translations/About.en";
+import { deAbout } from "../pages/About/translations/About.de";
 import { enNotFound } from "../pages/NotFound/translations/NotFound.en";
 import { deNotFound } from "../pages/NotFound/translations/NotFound.de";
 
@@ -37,7 +39,7 @@ export function useBasePath() {
 
 export function useDict() {
   return {
-    en: { ...enMenuItems, ...enHeader, ...enFooter, ...enHome, ...enNotFound },
-    de: { ...deMenuItems, ...deHeader, ...deFooter, ...deHome, ...deNotFound },
+    en: { ...enMenuItems, ...enHeader, ...enFooter, ...enHome, ...enAbout, ...enNotFound },
+    de: { ...deMenuItems, ...deHeader, ...deFooter, ...deHome, ...deAbout, ...deNotFound },
   };
 }

@@ -9,20 +9,22 @@ function Home() {
   const [t, { locale }] = useI18n();
   useTranslation(locale);
 
-  const sizes = [
-    [960, 768],
-    [768, 960],
-    [1024, 1280],
-    [1080, 1080],
+  const sliderImages = [
+    { width: 960, height: 768 },
+    { width: 768, height: 960 },
+    { width: 1024, height: 1280 },
+    { width: 1080, height: 1080 },
   ];
-  const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
-  const image = `https://picsum.photos/${randomSize.join("/")}`;
+  const randomImage = sliderImages[Math.floor(Math.random() * sliderImages.length)];
+  const image = {
+    src: `https://picsum.photos/${randomImage.width}/${randomImage.height}`,
+    width: randomImage.width,
+    height: randomImage.height,
+  };
 
-  const sliderImages = [];
-
-  for (let i = 0; i < 5; i++) {
-    sliderImages.push(`https://picsum.photos/1280/720?random=${i}`);
-  }
+  sliderImages.forEach((image, i) => {
+    image.src = `https://picsum.photos/${image.width}/${image.height}?r=${i}`;
+  });
 
   return (
     <DefaultLayout>

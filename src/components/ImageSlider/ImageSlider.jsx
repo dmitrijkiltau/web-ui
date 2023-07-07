@@ -19,7 +19,9 @@ function ImageSlider(props) {
           <For each={images}>
             {(image, i) => (
               <img
-                src={image}
+                src={image.src}
+                width={image.width}
+                height={image.height}
                 class="c-image"
                 alt={`Image ${i()}`}
                 data-index={i()}

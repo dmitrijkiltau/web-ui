@@ -19,12 +19,6 @@ export const menuItems = [
     subItems: [
       {
         id: nanoid(),
-        name: "github",
-        link: "https://github.com/dmitrijkiltau",
-        target: "_blank",
-      },
-      {
-        id: nanoid(),
         name: "twitter",
         link: "https://twitter.com/einfachdima",
         target: "_blank",
@@ -33,6 +27,12 @@ export const menuItems = [
         id: nanoid(),
         name: "mastodon",
         link: "https://det.social/@dima",
+        target: "_blank",
+      },
+      {
+        id: nanoid(),
+        name: "github",
+        link: "https://github.com/dmitrijkiltau",
         target: "_blank",
       },
       {
