@@ -3,28 +3,23 @@ import { useTranslation } from "../../hooks/useTranslation";
 import DefaultLayout from "../../layout/Default";
 import Section from "../../components/Section/Section";
 import TextImage from "../../components/TextImage/TextImage";
-import ImageSlider from "../../components/ImageSlider/ImageSlider";
 
 function Home() {
   const [t, { locale }] = useI18n();
   useTranslation(locale);
 
-  const sliderImages = [
+  const sizes = [
     { width: 960, height: 768 },
     { width: 768, height: 960 },
     { width: 1024, height: 1280 },
     { width: 1080, height: 1080 },
   ];
-  const randomImage = sliderImages[Math.floor(Math.random() * sliderImages.length)];
+  const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
   const image = {
-    src: `https://picsum.photos/${randomImage.width}/${randomImage.height}`,
-    width: randomImage.width,
-    height: randomImage.height,
+    src: `https://picsum.photos/${randomSize.width}/${randomSize.height}`,
+    width: randomSize.width,
+    height: randomSize.height,
   };
-
-  sliderImages.forEach((image, i) => {
-    image.src = `https://picsum.photos/${image.width}/${image.height}?r=${i}`;
-  });
 
   return (
     <DefaultLayout>
@@ -33,12 +28,6 @@ function Home() {
         <h4>{t("home.subtitle")}</h4>
         <p>{t("home.description")}</p>
       </TextImage>
-
-      <Section width="medium" bg="gray" py="large">
-        <h2>ImageSlider</h2>
-
-        <ImageSlider images={sliderImages} />
-      </Section>
     </DefaultLayout>
   );
 }
