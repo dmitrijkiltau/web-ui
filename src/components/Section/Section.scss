@@ -32,6 +32,7 @@
   }
 
   $sizes: (
+    x-large: clamp(6rem, 10vw, 10rem),
     large: clamp(3rem, 10vw, 4rem),
     medium: clamp(2rem, 10vw, 3rem),
     small: clamp(1rem, 10vw, 2rem),

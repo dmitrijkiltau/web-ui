@@ -17,9 +17,7 @@
   h6,
   .h6,
   a,
-  .c-link,
-  p,
-  .c-text {
+  .c-link {
     overflow-wrap: anywhere;
     color: var(--color-headline);
 
@@ -62,13 +60,24 @@
     @apply text-h6;
   }
 
+  a,
+  .c-link,
   p,
   .c-text {
     @apply text-base;
     overflow-wrap: anywhere;
-    color: var(--color-body);
+
+    &:not(:first-child) {
+      @apply mt-4;
+    }
+
+    &:not(:last-child) {
+      @apply mb-8;
+    }
   }
 
+  p,
+  .c-text,
   span {
     color: var(--color-body);
   }
