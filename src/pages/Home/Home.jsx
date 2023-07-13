@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <DefaultLayout>
-      <TextImage image={image}>
+      <TextImage image={image} height="full">
         <h1>{t("home.title")}</h1>
         <h4>{t("home.subtitle")}</h4>
         <p>{t("home.description")}</p>

@@ -4,7 +4,6 @@ import { addPassiveListener } from "../../helper/passiveListener";
 import { footerMenuItems, legalMenuItems } from "../../data/menuItems";
 import Section from "../Section/Section";
 import MenuItem from "../MenuItem/MenuItem";
-import "./Footer.scss";
 
 function Footer() {
   const [t] = useI18n();
@@ -13,7 +12,7 @@ function Footer() {
 
   return (
     <footer id="main-footer" class="cols-2">
-      <Section id="footer-container" width="medium" bg="dark" py="large">
+      <Section id="footer-container" width="lg" align="center" bg="dark" py="large">
         <div class="footer-item">
           <h4>{t("footer.title1")}</h4>
           <p>{t("footer.description1")}</p>
@@ -30,7 +29,7 @@ function Footer() {
         </div>
       </Section>
 
-      <Section id="footer-bar" width="medium" bg="dark" pb="large">
+      <Section id="footer-bar" width="lg" align="center" bg="dark" pb="large">
         <div class="footer-copyright">
           <span>
             © <span id="footer-date"></span> Dmitrij{" "}

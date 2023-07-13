@@ -1,15 +1,28 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "fonts.scss";
 
 @layer base {
+  @import "fonts.scss";
+
   img {
     @apply w-full max-w-full;
   }
+
+  #root {
+    @apply min-h-screen grid grid-cols-1 justify-center;
+    grid-template-rows: 4rem 1fr min-content;
+
+    #main-content {
+      @apply flex flex-col;
+    }
+  }
 }
 
-#root {
-  @apply min-h-screen grid grid-cols-1 justify-center;
-  grid-template-rows: 4rem 1fr min-content;
+@layer components {
+  @import "components/Section/Section.scss";
+  @import "components/Header/Header.scss";
+  @import "components/Footer/Footer.scss";
+  @import "components/TextImage/TextImage.scss";
+  @import "components/ImageSlider/ImageSlider.scss";
 }

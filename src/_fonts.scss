@@ -15,11 +15,10 @@
   h5,
   .h5,
   h6,
-  .h6,
-  a,
-  .c-link {
-    overflow-wrap: anywhere;
+  .h6 {
     color: var(--color-headline);
+    word-wrap: break-word;
+    hyphens: auto;
 
     &:not(:first-child) {
       @apply mt-8;
@@ -61,11 +60,17 @@
   }
 
   a,
+  .c-link {
+    color: var(--color-headline);
+  }
+
+  a,
   .c-link,
   p,
   .c-text {
     @apply text-base;
-    overflow-wrap: anywhere;
+    word-wrap: break-word;
+    hyphens: auto;
 
     &:not(:first-child) {
       @apply mt-4;

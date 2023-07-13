@@ -6,7 +6,6 @@ import { IconArrowRight, IconClose, IconMenu } from "../../icons/Icons";
 import Section from "../Section/Section";
 import { menuItems } from "../../data/menuItems";
 import MenuItem from "../MenuItem/MenuItem";
-import "./Header.scss";
 
 function Header() {
   const [t] = useI18n();
@@ -15,7 +14,7 @@ function Header() {
 
   return (
     <header id="main-header">
-      <Section className="header" width="medium" bg="white">
+      <Section className="header" width="lg" align="center" bg="white">
         <a href={basePath} id="main-logo" aria-label={t("menuItem.home")}>
           <img src={logo} alt="Logo" />
         </a>
@@ -40,7 +39,8 @@ function Header() {
 
       <Section
         id="main-flyout"
-        width="medium"
+        width="lg"
+        align="center"
         bg="white"
         pt="medium"
         pb="large"

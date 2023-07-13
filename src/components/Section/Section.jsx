@@ -1,9 +1,9 @@
 import { nanoid } from "nanoid";
 import { classnames } from "../../helper/classnames";
-import "./Section.scss";
 
 function Section(props) {
-  const { id, className, width, bg, my, mt, mb, py, pt, pb, children } = props;
+  const { id, className, width, height, align, bg, my, mt, mb, py, pt, pb, children } =
+    props;
 
   const marginY = my ? `my-${my}` : false;
   const marginTop = mt ? `mt-${mt}` : false;
@@ -16,9 +16,12 @@ function Section(props) {
   const paddingClass = [paddingY, paddingTop, paddingBottom];
 
   const classNames = classnames([
-    "section" + (className ? ` ${className}` : ""),
-    width ?? false,
+    "section",
+    className ?? false,
+    width ? `size-${width}` : false,
+    height === "full" ? `height-full` : false,
     bg ? `bg-${bg}` : false,
+    align ? `align-${align}` : false,
     ...marginClass,
     ...paddingClass,
   ]);

@@ -1,6 +1,7 @@
 import { useI18n } from "@amoutonbrady/solid-i18n";
 import { useTranslation } from "../../hooks/useTranslation";
 import DefaultLayout from "../../layout/Default";
+import Hero from "../../components/Hero/Hero";
 import Section from "../../components/Section/Section";
 
 function LegalNotice() {
@@ -9,11 +10,9 @@ function LegalNotice() {
 
   return (
     <DefaultLayout>
-      <Section py="large">
-        <h1 class="text-center">{t("legalNotice.title")}</h1>
-      </Section>
+      <Hero title={t("legalNotice.title")} align="center" className="text-center" />
 
-      <Section width="small" py="large">
+      <Section width="sm" height="full" py="large" bg="gray">
         <h2>Angaben gemäß § 5 TMG</h2>
 
         <p>

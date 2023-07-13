@@ -1,12 +1,12 @@
 import Section from "../Section/Section";
-import "./TextImage.scss";
 
 function TextImage(props) {
-  const { image, children } = props;
+  const { image, height, children } = props;
 
   return (
-    <Section className="c-text-image" width="large" my="large">
+    <Section className="c-text-image" width="xl" height={height} my="large">
       <div class="c-container">{children}</div>
+
       <img
         src={image.src}
         width={image.width}

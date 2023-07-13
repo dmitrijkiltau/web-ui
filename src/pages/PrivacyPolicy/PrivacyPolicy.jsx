@@ -1,6 +1,7 @@
 import { useI18n } from "@amoutonbrady/solid-i18n";
 import { useTranslation } from "../../hooks/useTranslation";
 import DefaultLayout from "../../layout/Default";
+import Hero from "../../components/Hero/Hero";
 import Section from "../../components/Section/Section";
 
 function PrivacyPolicy() {
@@ -9,11 +10,9 @@ function PrivacyPolicy() {
 
   return (
     <DefaultLayout>
-      <Section py="large">
-        <h1 class="text-center">{t("privacyPolicy.title")}</h1>
-      </Section>
-      
-      <Section width="medium" py="large">
+      <Hero title={t("privacyPolicy.title")} align="center" className="text-center" />
+
+      <Section width="md" py="large" align="center" bg="gray">
         <h2>1. Datenschutz auf einen Blick</h2>
         <h3>Allgemeine Hinweise</h3>
         <p>Die folgenden Hinweise geben einen einfachen &Uuml;berblick dar&uuml;ber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie pers&ouml;nlich identifiziert werden k&ouml;nnen. Ausf&uuml;hrliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgef&uuml;hrten Datenschutzerkl&auml;rung.</p>

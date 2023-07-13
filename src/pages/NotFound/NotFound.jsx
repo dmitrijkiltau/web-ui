@@ -1,7 +1,7 @@
 import { useI18n } from "@amoutonbrady/solid-i18n";
 import DefaultLayout from "../../layout/Default";
-import Section from "../../components/Section/Section";
 import { useTranslation } from "../../hooks/useTranslation";
+import Hero from "../../components/Hero/Hero";
 
 function NotFound() {
   const [t, { locale }] = useI18n();
@@ -9,10 +9,9 @@ function NotFound() {
 
   return (
     <DefaultLayout>
-      <Section className="h-full" width="medium" bg="gray" py="large">
-        <h1>{t("notFound.title")}</h1>
-        <h4>{t("notFound.description")}</h4>
-      </Section>
+      <Hero title={t("notFound.title")} height="full" align="center" bg="dark">
+        <h2 class="h4">{t("notFound.description")}</h2>
+      </Hero>
     </DefaultLayout>
   );
 }

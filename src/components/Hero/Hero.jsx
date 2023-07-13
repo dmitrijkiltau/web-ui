@@ -1,19 +1,21 @@
+import { classnames } from "../../helper/classnames";
 import Section from "../Section/Section";
-import "./Hero.scss";
 
 function Hero(props) {
-  const { title, align, bg, children } = props;
+  const { title, className, align, height, bg, children } = props;
+  const classNames = classnames(["c-hero", className ?? false]);
 
-  let width = "large";
-  let className = "c-hero";
-
-  if (align === "center") {
-    width = "small";
-    className += " align-center";
-  }
+  let width = "sm";
 
   return (
-    <Section className={className} width={width} py="x-large" bg={bg}>
+    <Section
+      className={classNames}
+      width={width}
+      height={height}
+      align={align}
+      py="x-large"
+      bg={bg}
+    >
       <div class="c-container">
         <h1>{title}</h1>
         {children}

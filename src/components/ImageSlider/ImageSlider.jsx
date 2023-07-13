@@ -4,7 +4,6 @@ import {
   addPassiveListener,
   removePassiveListener,
 } from "../../helper/passiveListener";
-import "./ImageSlider.scss";
 
 function ImageSlider(props) {
   const { images, id, className } = props;

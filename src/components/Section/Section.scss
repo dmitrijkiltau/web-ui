@@ -1,20 +1,125 @@
 .section {
-  @apply grid place-items-center px-4;
+  --side: minmax(1rem, 1fr);
+  @apply grid gap-4;
+  grid-template-columns: auto repeat(12, minmax(auto, 1fr)) auto;
 
   .section-container {
-    @apply w-full max-w-full;
+    @apply col-start-2 col-span-12;
   }
 
-  &.large .section-container {
-    @apply max-w-screen-2xl;
+  &.size-xl,
+  &.size-lg,
+  &.size-md,
+  &.size-sm,
+  &.size-xs {
+    grid-template-columns: auto repeat(4, minmax(auto, 96px)) auto;
+
+    @screen sm {
+      grid-template-columns: auto repeat(6, minmax(auto, 96px)) auto;
+    }
+
+    @screen md {
+      grid-template-columns: auto repeat(8, minmax(auto, 96px)) auto;
+    }
+
+    @screen lg {
+      grid-template-columns: auto repeat(10, minmax(auto, 96px)) auto;
+    }
+
+    @screen 2xl {
+      grid-template-columns: auto repeat(12, minmax(auto, 96px)) auto;
+    }
   }
 
-  &.medium .section-container {
-    @apply max-w-screen-lg;
+  &.size-xl {
+    .section-container {
+      @apply col-start-2 col-span-4;
+      @apply sm:col-start-2 sm:col-span-6;
+      @apply md:col-start-2 md:col-span-8;
+      @apply lg:col-start-2 lg:col-span-10;
+      @apply 2xl:col-start-2 2xl:col-span-12;
+    }
   }
 
-  &.small .section-container {
-    @apply max-w-screen-sm;
+  &.size-lg {
+    .section-container {
+      @apply col-start-2 col-span-4;
+      @apply sm:col-start-2 sm:col-span-6;
+      @apply md:col-start-2 md:col-span-8;
+      @apply lg:col-start-2 lg:col-span-10;
+    }
+
+    &.align-center .section-container {
+      @apply col-start-2;
+      @apply 2xl:col-start-3;
+    }
+
+    &.align-end .section-container {
+      @apply col-start-2;
+      @apply 2xl:col-start-4;
+    }
+  }
+
+  &.size-md {
+    .section-container {
+      @apply col-start-2 col-span-4;
+      @apply sm:col-start-2 sm:col-span-6;
+      @apply md:col-start-2 md:col-span-8;
+    }
+
+    &.align-center .section-container {
+      @apply col-start-2;
+      @apply lg:col-start-3;
+      @apply 2xl:col-start-4;
+    }
+
+    &.align-end .section-container {
+      @apply col-start-2;
+      @apply lg:col-start-4;
+      @apply 2xl:col-start-6;
+    }
+  }
+
+  &.size-sm {
+    .section-container {
+      @apply col-start-2 col-span-4;
+      @apply sm:col-start-2 sm:col-span-6;
+    }
+
+    &.align-center .section-container {
+      @apply col-start-2;
+      @apply lg:col-start-4;
+      @apply 2xl:col-start-5;
+    }
+
+    &.align-end .section-container {
+      @apply col-start-2;
+      @apply lg:col-start-6;
+      @apply 2xl:col-start-8;
+    }
+  }
+
+  &.size-xs {
+    .section-container {
+      @apply col-start-2 col-span-4;
+    }
+
+    &.align-center .section-container {
+      @apply col-start-2;
+      @apply lg:col-start-5;
+      @apply 2xl:col-start-7;
+    }
+
+    &.align-end .section-container {
+      @apply col-start-2;
+      @apply lg:col-start-8;
+      @apply 2xl:col-start-10;
+    }
+  }
+
+  &.height-full {
+    @apply items-center;
+    flex: auto;
   }
 
   &.bg-white {
@@ -54,8 +159,14 @@
   }
 
   $spacingsY: (
-    my: (margin-top, margin-bottom),
-    py: (padding-top, padding-bottom),
+    my: (
+      margin-top,
+      margin-bottom,
+    ),
+    py: (
+      padding-top,
+      padding-bottom,
+    ),
   );
 
   @each $spacing-name, $spacing-values in $spacingsY {

@@ -22,10 +22,10 @@ function About() {
   return (
     <DefaultLayout>
       <Hero title={t("about.title")} align="center" bg="gray">
-        <p>{t("about.description")}</p>
+        <h2 class="h4">{t("about.description")}</h2>
       </Hero>
 
-      <Section width="medium" bg="dark" py="large">
+      <Section width="xl" align="center" bg="dark" py="large">
         <h2>ImageSlider</h2>
         <p>
           ImageSlider is a component that displays a list of images in a slider.

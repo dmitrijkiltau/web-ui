@@ -1,47 +1,23 @@
 .c-text-image {
-  .section-container {
-    @apply grid grid-cols-6 md:grid-cols-12 items-center gap-x-4 gap-y-6;
+  @apply items-center;
+
+  & > .section-container {
+    @apply contents;
   }
 
   .c-container {
-    @apply col-span-6;
+    @apply col-start-2 col-span-3;
+    @apply sm:col-start-3 sm:col-span-4;
+    @apply md:col-start-2 md:col-span-4;
+    @apply lg:col-start-3 lg:col-span-4;
+    @apply 2xl:col-start-3 2xl:col-span-4;
   }
 
   .c-image {
-    @apply col-span-6;
-  }
-
-  @screen sm {
-    .section-container {
-      @apply gap-x-8 gap-y-16;
-    }
-
-    .c-container {
-      @apply col-start-2 col-span-4;
-    }
-
-    .c-image {
-      @apply col-start-2 col-span-4;
-    }
-  }
-
-  @screen md {
-    .c-container {
-      @apply col-start-2 col-span-8;
-    }
-
-    .c-image {
-      @apply col-start-6 col-span-6;
-    }
-  }
-
-  @screen lg {
-    .c-container {
-      @apply col-start-2 col-span-5;
-    }
-
-    .c-image {
-      @apply col-start-8 col-span-4;
-    }
+    @apply col-start-3 col-span-2;
+    @apply sm:col-start-4 sm:col-span-3;
+    @apply md:col-start-7 md:col-span-3;
+    @apply lg:col-start-8 lg:col-span-4;
+    @apply 2xl:col-start-9 2xl:col-span-5;
   }
 }
