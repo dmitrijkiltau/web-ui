@@ -12,7 +12,7 @@
   &.size-md,
   &.size-sm,
   &.size-xs {
-    grid-template-columns: auto repeat(4, minmax(auto, 96px)) auto;
+    grid-template-columns: auto repeat(4, minmax(auto, 1fr)) auto;
 
     @screen sm {
       grid-template-columns: auto repeat(6, minmax(auto, 96px)) auto;
@@ -88,6 +88,7 @@
 
     &.align-center .section-container {
       @apply col-start-2;
+      @apply md:col-start-3;
       @apply lg:col-start-4;
       @apply 2xl:col-start-5;
     }

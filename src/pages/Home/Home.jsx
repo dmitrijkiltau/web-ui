@@ -23,11 +23,16 @@ function Home() {
 
   return (
     <DefaultLayout>
-      <TextImage image={image} height="full">
+      <TextImage image={image}>
         <h1>{t("home.title")}</h1>
         <h4>{t("home.subtitle")}</h4>
         <p>{t("home.description")}</p>
       </TextImage>
+
+      <Section width="xs" py="large" bg="gray">
+        <h2>{t("home.tools.title")}</h2>
+        <p>{t("home.tools.description")}</p>
+      </Section>
     </DefaultLayout>
   );
 }
