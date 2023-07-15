@@ -85,13 +85,15 @@ function PrivacyPolicy() {
 
         <p>
           Beim Besuch dieser Website kann Ihr Surf-Verhalten statistisch
-          ausgewertet werden. Das geschieht vor allem mit sogenannten
-          Analyseprogrammen.
-        </p>
-
-        <p>
-          Detaillierte Informationen zu diesen Analyseprogrammen finden Sie in
-          der folgenden Datenschutzerklärung.
+          ausgewertet werden. Das geschieht vor allem mit Google Analytics und
+          Firebase, unseren Analyseprogrammen. Beide Tools sammeln Daten, die
+          uns helfen, das Verhalten unserer Besucher besser zu verstehen und
+          unsere Website entsprechend zu verbessern. Google Analytics verwendet
+          "Cookies", Textdateien, die auf Ihrem Computer gespeichert werden und
+          die eine Analyse der Benutzung der Website durch Sie ermöglichen.
+          Firebase, eine Entwicklungsumgebung von Google, bietet auch
+          Analysefunktionen, mit denen wir das Nutzerverhalten analysieren
+          können.
         </p>
 
         <h3>Hosting und Content Delivery Networks (CDN)</h3>
@@ -182,17 +184,38 @@ function PrivacyPolicy() {
 
         <h3>Verwendung von Cookies</h3>
 
-        <p>Diese Website verwendet keine Cookies.</p>
+        <p>
+          Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die
+          auf Ihrem Computer gespeichert werden. Sie dienen dazu, unsere
+          Angebote nutzerfreundlicher, effektiver und sicherer zu machen. Die
+          meisten der von uns verwendeten Cookies sind so genannte
+          "Session-Cookies". Sie werden nach Ende Ihres Besuchs automatisch
+          gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert, bis
+          Sie diese löschen. Diese Cookies ermöglichen es uns, Ihren Browser
+          beim nächsten Besuch wiederzuerkennen.
+        </p>
 
         <h3>Analysetools</h3>
 
-        <p>Unsere Website verwendet keine Analysetools.</p>
+        <p>
+          Unsere Website verwendet Google Analytics und Firebase als
+          Analysetools. Diese Tools sammeln Informationen darüber, wie Besucher
+          unsere Website nutzen, einschließlich der Anzahl der Besucher, wo die
+          Besucher herkommen und welche Seiten sie besucht haben. Diese
+          Informationen helfen uns, unsere Website zu verbessern und den
+          Besuchern eine bessere Erfahrung zu bieten.
+        </p>
 
         <h3>Online-Werbung und Werbenetzwerke</h3>
 
         <p>
-          Unsere Website verwendet keine Online-Werbung und ist nicht Teil von
-          Werbenetzwerken.
+          Unsere Website verwendet derzeit keine Online-Werbung und ist nicht
+          Teil von Werbenetzwerken. Falls wir in Zukunft Online-Werbung
+          implementieren, werden wir diese Datenschutzerklärung aktualisieren.
+          Bitte beachten Sie, dass, obwohl wir keine Werbenetzwerke nutzen,
+          einige der Analysetools, die wir verwenden, wie Google Analytics und
+          Firebase, potenziell Daten für Werbezwecke verwenden können. Bitte
+          lesen Sie deren Datenschutzrichtlinien für weitere Informationen.
         </p>
 
         <h3>Datenspeicherung und -sicherheit</h3>
@@ -212,9 +235,13 @@ function PrivacyPolicy() {
           Personenbezogene Daten, die wir sammeln, können in einem Land
           gespeichert und verarbeitet werden, das nicht die Datenschutzgesetze
           Ihres Wohnsitzlandes hat. Wenn wir Ihre personenbezogenen Daten
-          außerhalb Ihres Wohnsitzlandes übertragen, werden wir Schutzmaßnahmen
-          ergreifen, um sicherzustellen, dass Ihre personenbezogenen Daten gemäß
-          dieser Datenschutzerklärung behandelt werden.
+          außerhalb Ihres Wohnsitzlandes übertragen, treffen wir entsprechende
+          Schutzmaßnahmen, um sicherzustellen, dass Ihre personenbezogenen Daten
+          gemäß dieser Datenschutzerklärung behandelt werden. Dazu gehört der
+          Einsatz von Standardvertragsklauseln, wie sie von der Europäischen
+          Kommission genehmigt wurden, und die Sicherstellung, dass die
+          Empfänger die gleichen oder ähnliche angemessene Sicherheitsstandards
+          einhalten.
         </p>
 
         <h3>Änderungen der Datenschutzbestimmungen</h3>
@@ -227,7 +254,7 @@ function PrivacyPolicy() {
         </p>
 
         <small>
-          <i>Letzte Änderung: 14.07.2023</i>
+          <i>Letzte Änderung: 15.07.2023</i>
         </small>
       </Section>
     </DefaultLayout>
