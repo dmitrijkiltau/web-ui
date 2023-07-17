@@ -19,11 +19,11 @@
     }
 
     @screen md {
-      grid-template-columns: auto repeat(8, minmax(auto, 96px)) auto;
+      grid-template-columns: auto repeat(12, minmax(auto, 1fr)) auto;
     }
 
     @screen lg {
-      grid-template-columns: auto repeat(10, minmax(auto, 96px)) auto;
+      grid-template-columns: auto repeat(12, minmax(auto, 72px)) auto;
     }
 
     @screen 2xl {
@@ -35,9 +35,7 @@
     .section-container {
       @apply col-start-2 col-span-4;
       @apply sm:col-start-2 sm:col-span-6;
-      @apply md:col-start-2 md:col-span-8;
-      @apply lg:col-start-2 lg:col-span-10;
-      @apply 2xl:col-start-2 2xl:col-span-12;
+      @apply md:col-start-2 md:col-span-12;
     }
   }
 
@@ -45,18 +43,17 @@
     .section-container {
       @apply col-start-2 col-span-4;
       @apply sm:col-start-2 sm:col-span-6;
-      @apply md:col-start-2 md:col-span-8;
-      @apply lg:col-start-2 lg:col-span-10;
+      @apply md:col-start-2 md:col-span-10;
     }
 
     &.align-center .section-container {
       @apply col-start-2;
-      @apply 2xl:col-start-3;
+      @apply md:col-start-3;
     }
 
     &.align-end .section-container {
       @apply col-start-2;
-      @apply 2xl:col-start-4;
+      @apply md:col-start-4;
     }
   }
 
@@ -69,14 +66,12 @@
 
     &.align-center .section-container {
       @apply col-start-2;
-      @apply lg:col-start-3;
-      @apply 2xl:col-start-4;
+      @apply md:col-start-4;
     }
 
     &.align-end .section-container {
       @apply col-start-2;
-      @apply lg:col-start-4;
-      @apply 2xl:col-start-6;
+      @apply md:col-start-6;
     }
   }
 
@@ -88,15 +83,12 @@
 
     &.align-center .section-container {
       @apply col-start-2;
-      @apply md:col-start-3;
-      @apply lg:col-start-4;
-      @apply 2xl:col-start-5;
+      @apply md:col-start-5;
     }
 
     &.align-end .section-container {
       @apply col-start-2;
-      @apply lg:col-start-6;
-      @apply 2xl:col-start-8;
+      @apply md:col-start-8;
     }
   }
 
@@ -107,14 +99,14 @@
 
     &.align-center .section-container {
       @apply col-start-2;
-      @apply lg:col-start-5;
-      @apply 2xl:col-start-7;
+      @apply sm:col-start-3;
+      @apply md:col-start-6;
     }
 
     &.align-end .section-container {
       @apply col-start-2;
-      @apply lg:col-start-8;
-      @apply 2xl:col-start-10;
+      @apply sm:col-start-4;
+      @apply md:col-start-10;
     }
   }
 

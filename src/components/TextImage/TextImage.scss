@@ -8,16 +8,12 @@
   .c-container {
     @apply col-start-2 col-span-3;
     @apply sm:col-start-3 sm:col-span-4;
-    @apply md:col-start-2 md:col-span-4;
-    @apply lg:col-start-3 lg:col-span-4;
-    @apply 2xl:col-start-3 2xl:col-span-4;
+    @apply md:col-start-3 md:col-span-5;
   }
 
   .c-image {
     @apply col-start-3 col-span-2;
     @apply sm:col-start-4 sm:col-span-3;
-    @apply md:col-start-7 md:col-span-3;
-    @apply lg:col-start-8 lg:col-span-4;
-    @apply 2xl:col-start-9 2xl:col-span-4;
+    @apply md:col-start-9 md:col-span-4;
   }
 }

@@ -127,6 +127,7 @@ function initHeader() {
     return;
   }
 
+  // Menu items
   for (const menuItem of mainMenuItems) {
     addPassiveListener(menuItem, "click", () => {
       const identifier = menuItem.dataset.identifier;
@@ -135,12 +136,18 @@ function initHeader() {
     });
   }
 
+  // Menu back buttons
   for (const backButton of backButtons) {
     addPassiveListener(backButton, "click", () => {
+      if (!previousFlyoutIdentifier) {
+        previousFlyoutIdentifier = "main-menu";
+      };
+
       openFlyout(previousFlyoutIdentifier);
     });
   }
 
+  // Mobile menu toggle
   addPassiveListener(mobileMenuToggle, "click", () => {
     const identifier = mobileMenuToggle.dataset.identifier;
     let label = mobileMenuToggle.getAttribute("aria-label");
@@ -150,6 +157,7 @@ function initHeader() {
       label = mobileMenuToggle.dataset.closeLabel;
     } else {
       label = mobileMenuToggle.dataset.openLabel;
+
       if (identifier) {
         previousFlyoutIdentifier = identifier;
         openFlyout(identifier);
@@ -158,10 +166,16 @@ function initHeader() {
 
     mobileMenuToggle.setAttribute("aria-label", label);
   });
+
+  // Flyout overlay
   addPassiveListener(flyoutOverlay, "click", closeFlyout);
+
+  // Keyboard events
   addPassiveListener(document, "keydown", (event) => {
     if (event.key === "Escape") closeFlyout();
   });
+
+  // Resize events
   addPassiveListener(window, "resize", () => {
     adjustFlyoutHeight();
     const mobileMenuOpen = header.querySelector("#mobile-menu.active") || false;
