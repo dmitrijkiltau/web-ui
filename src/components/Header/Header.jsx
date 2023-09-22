@@ -129,9 +129,15 @@ function initHeader() {
   // Menu items
   for (const menuItem of mainMenuItems) {
     addPassiveListener(menuItem, "click", () => {
-      const identifier = menuItem.dataset.identifier;
       adjustFlyoutHeight(menuItem);
-      identifier ? openFlyout(identifier) : closeFlyout();
+
+      const identifier = menuItem.dataset.identifier;
+
+      if (!identifier || identifier === previousFlyoutIdentifier && flyout.classList.contains("active")) {
+        closeFlyout();
+      } else {
+        openFlyout(identifier);
+      }
     });
   }
 
@@ -140,7 +146,7 @@ function initHeader() {
     addPassiveListener(backButton, "click", () => {
       if (!previousFlyoutIdentifier) {
         previousFlyoutIdentifier = "main-menu";
-      };
+      }
 
       openFlyout(previousFlyoutIdentifier);
     });
@@ -192,11 +198,13 @@ function initHeader() {
 
     if (!initialOpen) adjustFlyoutHeight();
 
+    document.body.classList.add("overflow-hidden");
     flyout.classList.add("active");
     flyoutOverlay.classList.add("active");
     mobileMenuToggle.classList.add("active");
 
     initialOpen = false;
+    previousFlyoutIdentifier = identifier;
   }
 
   function adjustFlyoutHeight(element) {
@@ -220,6 +228,8 @@ function initHeader() {
     for (const item of header.querySelectorAll(".active:not(.flyout-item)")) {
       item.classList.remove("active");
     }
+
+    document.body.classList.remove("overflow-hidden");
   }
 }
 
