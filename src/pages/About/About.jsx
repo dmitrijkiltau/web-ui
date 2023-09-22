@@ -22,7 +22,7 @@ function About() {
   return (
     <DefaultLayout>
       <Hero title={t("about.title")} align="center" bg="gray">
-        <h2 class="h4">{t("about.description")}</h2>
+        <h2 class="h5">{t("about.description")}</h2>
       </Hero>
 
       <Section width="xl" align="center" bg="dark" py="large">

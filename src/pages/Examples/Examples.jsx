@@ -57,6 +57,16 @@ function Examples() {
           <Column xs="12" sm="6" md="4">3</Column>
         </Grid>
       </Section>
+
+      <Section className="mt-4 mb-4">
+        <h1>Headline 1</h1>
+        <h2>Headline 2</h2>
+        <h3>Headline 3</h3>
+        <h4>Headline 4</h4>
+        <h5>Headline 5</h5>
+        <h6>Headline 6</h6>
+        <p>Paragraph</p>
+      </Section>
     </DefaultLayout>
   );
 }

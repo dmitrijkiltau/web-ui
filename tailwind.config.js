@@ -30,13 +30,13 @@ module.exports = {
       '2xl': '1536px',
     },
     fontSize: {
-      'h1': ['clamp(3.5rem, 10vw, 5rem)', 'clamp(4.125rem, 10vw, 5.625rem)'],
-      'h2': ['clamp(2rem, 10vw, 2.5rem)', 'clamp(2.25rem, 10vw, 2.5rem)'],
-      'h3': ['clamp(1.25rem, 10vw, 2rem)', 'clamp(1.5rem, 10vw, 2.25rem)'],
-      'h4': ['clamp(1rem, 10vw, 1.25rem)', 'clamp(1.25rem, 10vw, 1.5rem)'],
-      'h5': ['clamp(0.875rem, 10vw, 1rem)', 'clamp(1rem, 10vw, 1.5rem)'],
-      'h6': ['0.875rem', '1.25rem'],
-      'base': ['1rem', '1.25rem'],
+      'base': ['1rem', '1.3'],
+      'xs': ['0.8em', '1.3'],
+      'sm': ['1.5em', '1.2'],
+      'md': ['2em', '1.3'],
+      'lg': ['3em', '1.3'],
+      'xl': ['4em', '1.2'],
+      '2xl': ['5em', '1.2'],
     },
     extend: {
       width: {

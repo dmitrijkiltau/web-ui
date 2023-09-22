@@ -5,12 +5,10 @@ function Hero(props) {
   const { title, className, align, height, bg, children } = props;
   const classNames = classnames(["c-hero", className ?? false]);
 
-  let width = "sm";
-
   return (
     <Section
       className={classNames}
-      width={width}
+      width={"md"}
       height={height}
       align={align}
       py="x-large"

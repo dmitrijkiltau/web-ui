@@ -5,6 +5,11 @@
 @layer base {
   @import "fonts.scss";
 
+  html,
+  body {
+    @apply text-base;
+  }
+
   img {
     @apply w-full max-w-full;
   }
@@ -27,51 +32,21 @@
   @import "components/TextImage/TextImage.scss";
   @import "components/ImageSlider/ImageSlider.scss";
 
-  .c-tools {
-    .section-container {
-      display: contents;
-    }
-
-    .description {
-      grid-column: 2 / span 2;
-    }
-
-    .tools {
-      grid-column: 4 / span 10;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-
-      @container (width < 1024px) {
-        grid-column: 4 / span 4;
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @container (width < 768px) {
-        grid-column: 2 / span 4;
-        grid-template-columns: 1fr;
-      }
-    }
-
+  #tools {
     .tool {
-      @apply p-6 aspect-[9/10] border-2 border-primary-80 rounded-3xl;
-      @apply bg-primary-100 cursor-pointer duration-300;
+      @apply p-6 aspect-[9/10] border-2 border-primary-95 rounded-3xl;
+      @apply flex flex-col justify-end bg-primary-100 cursor-pointer duration-300;
 
-      .h4,
+      h3,
       p {
         @apply mt-0 duration-500 ease-out;
-      }
-
-      .h4 {
-        @apply font-bold sm:text-h3;
-        @apply md:text-h3;
       }
 
       &:hover {
         @apply bg-primary-5 border-primary-20 scale-105;
         box-shadow: 0 2px 16px rgb(0, 0, 0, 0.5);
 
-        .h4 {
+        h3 {
           @apply text-primary-95;
         }
 

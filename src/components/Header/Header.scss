@@ -99,7 +99,7 @@
       @apply flex items-end gap-2;
 
       .menu-back {
-        @apply sm:hidden w-8 h-8 grid place-items-center;
+        @apply sm:hidden w-12 h-12 grid place-items-center;
 
         svg {
           @apply rotate-180;

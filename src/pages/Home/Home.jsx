@@ -47,12 +47,12 @@ function Home() {
     {
       id: "base64-encoder-decoder",
       title: "Base64 Encoder / Decoder",
-      description: "Encode / Decode Base64",
+      description: "Encode and decode Base64",
     },
     {
       id: "url-encoder-decoder",
       title: "URL Encoder / Decoder",
-      description: "Encode / Decode URL",
+      description: "Encode and decode URLs",
     },
     {
       id: "percentages-calculator",
@@ -70,7 +70,7 @@ function Home() {
     <DefaultLayout>
       <TextImage image={image}>
         <h1>{t("home.title")}</h1>
-        <h4>{t("home.subtitle")}</h4>
+        <h2 className="h5">{t("home.subtitle")}</h2>
         <p>{t("home.description")}</p>
       </TextImage>
 
@@ -82,18 +82,17 @@ function Home() {
         bg="gray"
       >
         <Grid>
-          <Column sm="3">
+          <Column sm="8" md="5" lg="4">
             <h2>{t("home.tools.title")}</h2>
             <p>{t("home.tools.description")}</p>
           </Column>
 
-          <Column sm="9">
+          <Column sm="12" md="7" lg="8">
             <Grid class="tools">
               <For each={tools}>
                 {(item) => (
-                  <Column sm="6" md="4" className="tool">
-                    <span class="h4">{item.title}</span>
-                    <p>{item.description}</p>
+                  <Column sm="6" md="6" lg="4" className="tool">
+                    <h3 class="h6">{item.title}</h3>
                   </Column>
                 )}
               </For>

@@ -16,52 +16,75 @@
   .h5,
   h6,
   .h6 {
+    @apply mt-8;
     color: var(--color-headline);
     word-wrap: break-word;
     hyphens: auto;
 
-    &:not(:first-child) {
-      @apply mt-8;
+    &:first-child {
+      @apply mt-0;
     }
 
     &:not(:last-child) {
       @apply mb-4;
     }
+
+    + .h1,
+    + h2,
+    + .h2,
+    + h3,
+    + .h3,
+    + h4,
+    + .h4,
+    + h5,
+    + .h5,
+    + h6,
+    + .h6 {
+      @apply mt-0;
+    }
   }
 
   h1,
   .h1 {
-    @apply text-h1 font-bold;
+    @apply text-2xl font-bold;
   }
 
   h2,
   .h2 {
-    @apply text-h2;
+    @apply text-xl font-bold;
   }
 
   h3,
   .h3 {
-    @apply text-h3 font-bold;
+    @apply text-lg font-normal;
   }
 
   h4,
   .h4 {
-    @apply text-h4;
+    @apply text-md font-bold;
   }
 
   h5,
   .h5 {
-    @apply text-h5;
+    @apply text-sm font-normal;
   }
 
   h6,
   .h6 {
-    @apply text-h6;
+    @apply text-base font-bold;
   }
 
-  a,
-  .c-link {
-    color: var(--color-headline);
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    + p {
+      @apply mt-0;
+    }
   }
 
   a,
@@ -85,5 +108,14 @@
   .c-text,
   span {
     color: var(--color-body);
+  }
+
+  a,
+  .c-link {
+    color: var(--color-headline);
+  }
+
+  small {
+    @apply text-xs;
   }
 }
