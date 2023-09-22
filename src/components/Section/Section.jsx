@@ -18,7 +18,7 @@ function Section(props) {
   const classNames = classnames([
     "section",
     className ?? false,
-    width ? `size-${width}` : false,
+    width ? `width-${width}` : false,
     height === "full" ? `height-full` : false,
     bg ? `bg-${bg}` : false,
     align ? `align-${align}` : false,

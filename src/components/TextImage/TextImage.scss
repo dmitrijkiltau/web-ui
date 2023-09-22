@@ -7,13 +7,15 @@
 
   .c-container {
     @apply col-start-2 col-span-3;
-    @apply sm:col-start-3 sm:col-span-4;
-    @apply md:col-start-3 md:col-span-5;
+    @apply md:col-start-3 md:col-span-3;
+    @apply lg:col-start-3 lg:col-span-5;
+    @apply xl:col-start-3 xl:col-span-4;
   }
 
   .c-image {
-    @apply col-start-3 col-span-2;
-    @apply sm:col-start-4 sm:col-span-3;
-    @apply md:col-start-9 md:col-span-4;
+    @apply col-start-3 col-span-3;
+    @apply md:col-start-4 md:col-span-3;
+    @apply lg:col-start-9 lg:col-span-4;
+    @apply xl:col-start-8 xl:col-span-5;
   }
 }

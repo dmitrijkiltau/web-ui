@@ -1,7 +1,9 @@
 #main-header {
+  container-type: inline-size;
+
   .header {
     @apply z-[1000] fixed top-0 left-0 w-full h-16;
-    @apply border-b-[2px] border-b-primary-95;
+    @apply border-b-[2px] bg-primary-100 border-b-primary-95;
 
     .section-container {
       @apply flex justify-between items-center gap-8;
@@ -34,7 +36,7 @@
 }
 
 #main-menu {
-  @apply msm:hidden;
+  @apply mmd:hidden;
 
   menu {
     @apply flex justify-between items-center gap-8;
@@ -46,7 +48,7 @@
 }
 
 #mobile-menu-toggle {
-  @apply sm:hidden grid place-items-center;
+  @apply md:hidden grid place-items-center;
   @apply border-none cursor-pointer;
 
   svg {
@@ -62,7 +64,7 @@
 #main-flyout {
   @apply z-[900] fixed top-16 left-0 w-full;
   @apply border-b-[2px] border-b-primary-95 duration-1000 ease-out;
-  @apply max-h-[calc(100vh-4rem)] overflow-y-auto;
+  @apply max-h-[calc(100vh-4rem)] overflow-y-auto bg-primary-100;
 
   &:not(.active) {
     @apply pointer-events-none opacity-0 -translate-y-full;

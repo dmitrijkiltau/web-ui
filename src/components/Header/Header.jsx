@@ -14,7 +14,7 @@ function Header() {
 
   return (
     <header id="main-header">
-      <Section className="header" width="lg" align="center" bg="white">
+      <Section className="header" align="center" bg="white">
         <a href={basePath} id="main-logo" aria-label={t("menuItem.home")}>
           <img src={logo} alt="Logo" />
         </a>
@@ -39,7 +39,6 @@ function Header() {
 
       <Section
         id="main-flyout"
-        width="lg"
         align="center"
         bg="white"
         pt="medium"
