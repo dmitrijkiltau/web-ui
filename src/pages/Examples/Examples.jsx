@@ -46,15 +46,27 @@ function Examples() {
 
       <Section className="mt-4 mb-4">
         <Grid>
-          <Column xs="12" sm="6" md="4">1</Column>
-          <Column xs="12" sm="6" md="4">2</Column>
-          <Column xs="12" sm="6" md="4">3</Column>
+          <Column xs="12" sm="6" md="4">
+            1
+          </Column>
+          <Column xs="12" sm="6" md="4">
+            2
+          </Column>
+          <Column xs="12" sm="6" md="4">
+            3
+          </Column>
         </Grid>
-        
+
         <Grid>
-          <Column xs="12" sm="6" md="2">1</Column>
-          <Column xs="12" sm="6" md="6">2</Column>
-          <Column xs="12" sm="6" md="4">3</Column>
+          <Column xs="12" sm="6" md="2">
+            1
+          </Column>
+          <Column xs="12" sm="6" md="6">
+            2
+          </Column>
+          <Column xs="12" sm="6" md="4">
+            3
+          </Column>
         </Grid>
       </Section>
 

@@ -1,21 +1,19 @@
 .c-text-image {
   @apply items-center;
 
-  & > .section-container {
-    @apply contents;
+  .section-content > div {
+    @apply items-center gap-y-10;
   }
 
-  .c-container {
-    @apply col-start-2 col-span-3;
-    @apply md:col-start-3 md:col-span-3;
-    @apply lg:col-start-3 lg:col-span-5;
-    @apply xl:col-start-3 xl:col-span-4;
+  .c-content {
+    @apply col-start-2 col-span-10;
+    @apply md:col-span-6;
+    @apply lg:col-start-2 lg:col-span-5;
   }
 
   .c-image {
-    @apply col-start-3 col-span-3;
-    @apply md:col-start-4 md:col-span-3;
-    @apply lg:col-start-9 lg:col-span-4;
-    @apply xl:col-start-8 xl:col-span-5;
+    @apply col-start-3 col-span-8;
+    @apply md:col-start-8 md:col-span-5;
+    @apply lg:col-start-8 lg:col-span-4;
   }
 }

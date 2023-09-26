@@ -17,11 +17,6 @@
   #root {
     @apply min-h-screen grid grid-cols-1 justify-center;
     grid-template-rows: 4rem 1fr min-content;
-
-    #main-content {
-      @apply flex flex-col;
-      container-type: inline-size;
-    }
   }
 }
 

@@ -1,19 +1,22 @@
 import Section from "../Section/Section";
+import Grid from "../Grid/Grid";
 
 function TextImage(props) {
   const { image, height, children } = props;
 
   return (
-    <Section className="c-text-image" width="xl" height={height} my="large">
-      <div class="c-container">{children}</div>
+    <Section className="c-text-image" height={height} my="large">
+      <Grid>
+        <div class="c-content">{children}</div>
 
-      <img
-        src={image.src}
-        width={image.width}
-        height={image.height}
-        class="c-image"
-        alt={`Image`}
-      />
+        <img
+          src={image.src}
+          width={image.width}
+          height={image.height}
+          class="c-image"
+          alt={`Image`}
+        />
+      </Grid>
     </Section>
   );
 }

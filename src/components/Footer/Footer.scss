@@ -1,6 +1,4 @@
 #main-footer {
-  container-type: inline-size;
-  
   a {
     @apply no-underline duration-200;
 
@@ -33,13 +31,13 @@
   }
 
   #footer-container {
-    .section-container {
+    .section-content {
       @apply grid gap-x-16 gap-y-8;
     }
   }
 
   &.cols-2 #footer-container {
-    .section-container {
+    .section-content {
       @apply grid-cols-2 msm:grid-cols-1;
     }
 
@@ -49,7 +47,7 @@
   }
 
   &.cols-3 #footer-container {
-    .section-container {
+    .section-content {
       @apply grid-cols-3 mlg:grid-cols-2 msm:grid-cols-1;
     }
 
@@ -59,7 +57,7 @@
   }
 
   #footer-bar {
-    .section-container {
+    .section-content {
       @apply w-full flex items-center justify-between pt-4;
       @apply border-t-2 border-primary-60;
 

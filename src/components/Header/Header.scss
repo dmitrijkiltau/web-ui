@@ -6,7 +6,7 @@
     @apply z-[1000] fixed top-0 left-0 w-full h-16;
     @apply border-b-[2px] bg-primary-100 border-b-primary-95;
 
-    .section-container {
+    .section-content {
       @apply flex justify-between items-center gap-8;
     }
   }
@@ -85,7 +85,7 @@
     }
   }
 
-  .section-container {
+  .section-content {
     @apply h-full grid duration-500 ease-out;
   }
 
