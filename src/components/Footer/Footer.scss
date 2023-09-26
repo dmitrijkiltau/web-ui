@@ -31,18 +31,27 @@
   }
 
   #footer-container {
+    .section-container {
+      @apply gap-y-8 md:gap-x-16;
+    }
+    
     .section-content {
-      @apply grid gap-x-16 gap-y-8;
+      @apply contents;
     }
   }
 
   &.cols-2 #footer-container {
     .section-content {
-      @apply grid-cols-2 msm:grid-cols-1;
+      @apply grid-cols-1 md:grid-cols-2;
     }
 
     .footer-item {
-      @apply first:col-span-1;
+      @apply col-span-12 md:col-span-6;
+
+      &:first-child {
+        @apply sm:col-span-8;
+        @apply md:col-span-6;
+      }
     }
   }
 
