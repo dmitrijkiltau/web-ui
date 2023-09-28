@@ -14,12 +14,12 @@ function Footer() {
     <footer id="main-footer" class="cols-2">
       <Section id="footer-container" align="center" bg="dark" py="large">
         <div class="footer-item">
-          <h4>{t("footer.title1")}</h4>
-          <p>{t("footer.description1")}</p>
+          <h4>{t("footer.title")}</h4>
+          <p>{t("footer.description")}</p>
         </div>
 
         <div class="footer-item">
-          <h4>{t("footer.title2")}</h4>
+          <h4>{t("footer.moreTitle")}</h4>
 
           <menu class="footer-menu">
             <For each={footerMenuItems}>

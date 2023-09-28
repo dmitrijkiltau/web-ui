@@ -1,8 +1,7 @@
 export const enFooter = {
   footer: {
-    title1: "What is this for?",
-    description1:
-      "This website is my personal playground. I use it to test new things. My main focus is on accessibility and performance. I also try to make it as responsive as possible.",
-    title2: "More",
+    title: "Why so empty?",
+    description: "The page was only recently created and is still being filled with content. I deliberately did not take over the previously existing page, as it was based on Gatsby.js and was optimized for Gatsby Cloud.",
+    moreTitle: "More",
   },
 };
