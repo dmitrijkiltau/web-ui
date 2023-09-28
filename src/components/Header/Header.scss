@@ -37,7 +37,7 @@
 }
 
 #main-menu {
-  @apply mmd:hidden;
+  @apply max-md:hidden;
 
   menu {
     @apply flex justify-between items-center gap-8;
@@ -108,7 +108,7 @@
     }
 
     .flyout-item-container {
-      @apply flex msm:flex-col gap-8 overflow-hidden;
+      @apply flex max-sm:flex-col gap-8 overflow-hidden;
     }
 
     &:not(.active) {

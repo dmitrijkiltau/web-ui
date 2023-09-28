@@ -5,7 +5,7 @@ function Grid(props) {
   const { id, className, gap = true, children } = props;
 
   const classNames = classnames([
-    "grid grid-cols-12",
+    "@container grid grid-cols-12",
     className ?? false,
     gap ? "gap-2 md:gap-4" : false,
   ]);

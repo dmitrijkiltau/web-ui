@@ -18,15 +18,10 @@ module.exports = {
       },
     },
     screens: {
-      'msm': { 'max': '419px' },
       'sm': '420px',
-      'mmd': { 'max': '767px' },
       'md': '768px',
-      'mlg': { 'max': '1023px' },
       'lg': '1024px',
-      'mxl': { 'max': '1279px' },
       'xl': '1280px',
-      'm2xl': { 'max': '1535px' },
       '2xl': '1536px',
     },
     fontSize: {
@@ -40,11 +35,18 @@ module.exports = {
     },
     extend: {
       width: {
-        '2xl': '1536px',
-        'xl': '1280px',
-        'lg': '1024px',
+        'sm': '420px',
         'md': '768px',
-        'sm': '640px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+      },
+      containers: {
+        'sm': '420px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
       },
       spacing: {
         '8xl': '96rem',
@@ -52,6 +54,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/container-queries'),
+  ],
 }
 

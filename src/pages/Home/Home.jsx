@@ -74,24 +74,22 @@ function Home() {
         <p>{t("home.description")}</p>
       </TextImage>
 
-      <Section
-        id="tools"
-        width="xl"
-        align="center"
-        py="large"
-        bg="gray"
-      >
-        <Grid>
-          <Column sm="8" md="5" lg="4">
-            <h2>{t("home.tools.title")}</h2>
-            <p>{t("home.tools.description")}</p>
+      <Section id="tools" align="center" py="large" bg="gray">
+        <Grid className="gap-y-10">
+          <Column sm="8" md="4" lg="3">
+            <div class="sticky top-20">
+              <h2>{t("home.tools.title")}</h2>
+              <p>{t("home.tools.description")}</p>
+            </div>
           </Column>
+
+          <Column xs="1" />
 
           <Column sm="12" md="7" lg="8">
             <Grid class="tools">
               <For each={tools}>
                 {(item) => (
-                  <Column sm="6" md="6" lg="4" className="tool">
+                  <Column sm="4" className="tool">
                     <h3 class="h6">{item.title}</h3>
                   </Column>
                 )}

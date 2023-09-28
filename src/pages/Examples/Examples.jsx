@@ -1,8 +1,8 @@
 import { useI18n } from "@amoutonbrady/solid-i18n";
 import { useTranslation } from "../../hooks/useTranslation";
+import { For } from "solid-js";
 import DefaultLayout from "../../layout/Default";
 import Section from "../../components/Section/Section";
-import { For } from "solid-js";
 import Grid from "../../components/Grid/Grid";
 import Column from "../../components/Grid/Column/Column";
 

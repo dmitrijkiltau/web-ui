@@ -57,11 +57,11 @@
 
   &.cols-3 #footer-container {
     .section-content {
-      @apply grid-cols-3 mlg:grid-cols-2 msm:grid-cols-1;
+      @apply grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1;
     }
 
     .footer-item {
-      @apply mlg:first:col-span-2 msm:first:col-span-1;
+      @apply max-lg:first:col-span-2 max-sm:first:col-span-1;
     }
   }
 
