@@ -43,3 +43,7 @@ You can deploy to Firebase Hosting by running `firebase deploy` after you have i
   }
 }
 ```
+
+#### More Information
+
+- https://firebase.google.com/docs/hosting/multisites?hl=de&authuser=0#set_up_deploy_targets
