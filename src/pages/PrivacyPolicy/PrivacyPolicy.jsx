@@ -16,7 +16,7 @@ function PrivacyPolicy() {
         className="text-center"
       />
 
-      <Section width="md" py="large" align="center" bg="gray">
+      <Section width="md" py="20" align="center" bg="gray">
         <h2>Datenschutz auf einen Blick</h2>
 
         <h3>Allgemeine Hinweise</h3>

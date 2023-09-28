@@ -13,8 +13,7 @@
   }
 
   &.height-full {
-    @apply items-center;
-    flex: auto;
+    @apply h-full items-center;
   }
 
   &.bg-gray {

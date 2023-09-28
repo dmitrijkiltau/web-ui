@@ -3,21 +3,24 @@ import Section from "../Section/Section";
 
 function Hero(props) {
   const { title, className, align, height, bg, children } = props;
-  const classNames = classnames(["c-hero", className ?? false]);
+
+  const classNames = classnames([
+    "c-hero",
+    className ?? false
+  ]);
 
   return (
     <Section
       className={classNames}
-      width={"md"}
+      containerClassName="@sm:col-span-8 @sm:col-start-3 @md:col-span-6 @md:col-start-4"
+      width="xl"
       height={height}
       align={align}
-      py="x-large"
+      py="32"
       bg={bg}
     >
-      <div class="c-container">
-        <h1>{title}</h1>
-        {children}
-      </div>
+      <h1>{title}</h1>
+      {children}
     </Section>
   );
 }

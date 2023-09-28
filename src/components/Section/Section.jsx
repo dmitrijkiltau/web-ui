@@ -6,11 +6,12 @@ function Section(props) {
   const {
     id,
     className,
+    containerClassName,
     width,
     height,
     align,
     bg,
-    my, // my-1 my-2 my-3 my-4 my-5 my-6 my-7 my-8 my-9 my-10 my-11 my-12 my-14 my-16 my-20 my-24 my-28 my-32 my-36 my-40 my-44 my-48 my-52 my-56 my-60 my-64 my-72 my-80 my-96  
+    my, // my-1 my-2 my-3 my-4 my-5 my-6 my-7 my-8 my-9 my-10 my-11 my-12 my-14 my-16 my-20 my-24 my-28 my-32 my-36 my-40 my-44 my-48 my-52 my-56 my-60 my-64 my-72 my-80 my-96
     mt, // mt-1 mt-2 mt-3 mt-4 mt-5 mt-6 mt-7 mt-8 mt-9 mt-10 mt-11 mt-12 mt-14 mt-16 mt-20 mt-24 mt-28 mt-32 mt-36 mt-40 mt-44 mt-48 mt-52 mt-56 mt-60 mt-64 mt-72 mt-80 mt-96
     mb, // mb-1 mb-2 mb-3 mb-4 mb-5 mb-6 mb-7 mb-8 mb-9 mb-10 mb-11 mb-12 mb-14 mb-16 mb-20 mb-24 mb-28 mb-32 mb-36 mb-40 mb-44 mb-48 mb-52 mb-56 mb-60 mb-64 mb-72 mb-80 mb-96
     py, // py-1 py-2 py-3 py-4 py-5 py-6 py-7 py-8 py-9 py-10 py-11 py-12 py-14 py-16 py-20 py-24 py-28 py-32 py-36 py-40 py-44 py-48 py-52 py-56 py-60 py-64 py-72 py-80 py-96
@@ -31,13 +32,13 @@ function Section(props) {
 
   const classNames = classnames([
     "section",
-    className ?? false,
     width === "full" ? `width-full` : false,
     height === "full" ? `height-full` : false,
     bg ? `bg-${bg}` : false,
     align ? `align-${align}` : false,
     ...marginClass,
     ...paddingClass,
+    className ?? false,
   ]);
 
   const col = {
@@ -65,13 +66,14 @@ function Section(props) {
       span: 10, // col-span-10
       centerStart: 2, // col-start-2
       endStart: 3, // col-start-3
-    }
+    },
   };
 
   const containerClassNames = classnames([
     "section-content",
     `col-span-${col[width]?.span ?? 12}`,
     align && getAlignClass(width, align),
+    containerClassName ?? false,
   ]);
 
   function getAlignClass(size, align) {

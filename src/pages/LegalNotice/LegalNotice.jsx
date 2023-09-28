@@ -12,7 +12,7 @@ function LegalNotice() {
     <DefaultLayout>
       <Hero title={t("legalNotice.title")} align="center" className="text-center" />
 
-      <Section width="md" align="center" height="full" py="large" bg="gray">
+      <Section width="lg" align="center" py="20" bg="gray">
         <h2>Angaben gemäß § 5 TMG</h2>
 
         <p>
