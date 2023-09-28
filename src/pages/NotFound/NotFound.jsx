@@ -9,8 +9,8 @@ function NotFound() {
 
   return (
     <DefaultLayout>
-      <Hero title={t("notFound.title")} height="full" align="center" bg="dark">
-        <h2 class="h4">{t("notFound.description")}</h2>
+      <Hero title={t("notFound.title")} height="full" align="center" bg="gray">
+        <h2 class="h5">{t("notFound.description")}</h2>
       </Hero>
     </DefaultLayout>
   );

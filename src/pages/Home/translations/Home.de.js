@@ -1,12 +1,7 @@
 export const deHome = {
   home: {
-    title: "Hi, ich bin Dima.",
-    subtitle: "Frontend Entwickler",
+    title: "Hi, ich bin web-ui.",
     description:
-      "Ich bin Frontend-Softwareentwickler aus Deutschland, der sich leidenschaftlich mit Web- und App-Entwicklung beschäftigt. Ich liebe es, Dinge zu erschaffen, die im Internet leben, egal ob es sich dabei um Websites, Apps oder irgendetwas dazwischen handelt. Mein Ziel ist es, pixel-perfekte und performante Erlebnisse zu schaffen.",
-      tools: {
-        title: "Tools",
-        description: "Hier sind verschiedene Tools. Der zugehörige Quellcode, zusammen mit dem der gesamten Website, ist auf Github zu finden."
-      }
-    }
+      "Ich bin web-ui, eine auf Solid.js und Tailwind CSS basierende Website. Ich bin ein Projekt von Dima. Ich bin Open Source und du kannst mich auf Github finden.",
+  }
 };

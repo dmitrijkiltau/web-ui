@@ -7,8 +7,6 @@ import { enFooter } from "../components/Footer/translations/Footer.en";
 import { deFooter } from "../components/Footer/translations/Footer.de";
 import { deHome } from "../pages/Home/translations/Home.de";
 import { enHome } from "../pages/Home/translations/Home.en";
-import { enAbout } from "../pages/About/translations/About.en";
-import { deAbout } from "../pages/About/translations/About.de";
 import { enLegalNotice } from "../pages/LegalNotice/translations/LegalNotice.en";
 import { deLegalNotice } from "../pages/LegalNotice/translations/LegalNotice.de";
 import { enPrivacyPolicy } from "../pages/PrivacyPolicy/translations/PrivacyPolicy.en";
@@ -48,7 +46,6 @@ export function useDict() {
       ...enHeader,
       ...enFooter,
       ...enHome,
-      ...enAbout,
       ...enLegalNotice,
       ...enPrivacyPolicy,
       ...enNotFound,
@@ -58,7 +55,6 @@ export function useDict() {
       ...deHeader,
       ...deFooter,
       ...deHome,
-      ...deAbout,
       ...deLegalNotice,
       ...dePrivacyPolicy,
       ...deNotFound,

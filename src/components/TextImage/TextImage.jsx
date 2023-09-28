@@ -5,7 +5,7 @@ function TextImage(props) {
   const { image, height, children } = props;
 
   return (
-    <Section className="c-text-image" height={height} my="large">
+    <Section className="c-text-image" height={height} my="20">
       <Grid>
         <div class="c-content">{children}</div>
 
