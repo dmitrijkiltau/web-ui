@@ -19,14 +19,8 @@ export const menuItems = [
     subItems: [
       {
         id: nanoid(),
-        name: "twitter",
-        link: "https://twitter.com/einfachdima",
-        target: "_blank",
-      },
-      {
-        id: nanoid(),
-        name: "mastodon",
-        link: "https://det.social/@dima",
+        name: "threads",
+        link: "https://threads.net/@einfach.dima",
         target: "_blank",
       },
       {

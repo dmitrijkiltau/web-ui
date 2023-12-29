@@ -6,8 +6,7 @@ export const enMenuItems = {
     contactTeaser:
       "I can be reached on many social media or by email: info@kiltau.com",
     github: "Github",
-    twitter: "Twitter",
-    mastodon: "Mastodon",
+    threads: "Threads",
     instagram: "Instagram",
     linkedIn: "LinkedIn",
     xing: "Xing",
