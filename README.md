@@ -1,32 +1,31 @@
-## Usage
+# web-ui
 
-Any package manager will work. The following examples use `npm`.
+This is a JavaScript project built with Solid.js. The project structure is organized into several directories, each serving a specific purpose.
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+## Project Structure
 
-### Learn more on the [Solid Website](https://solidjs.com).
+- `src/`: Contains the source code of the application.
+  - `assets/`: Contains static files like images.
+  - `components/`: Contains reusable UI components like Footer, Grid, Header, etc.
+  - `data/`: Contains data files like menuItems.jsx and translations.
+  - `helper/`: Contains helper functions.
+  - `hooks/`: Contains custom hooks like useTranslation.jsx.
+  - `icons/`: Contains icon components.
+  - `layout/`: Contains layout components.
+  - `pages/`: Contains page components.
+- `style.scss` and `_fonts.scss`: Contains global and font styles respectively.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm run dev` or `npm start`
+### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
+Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits.
 
 ### `npm run build`
 
-Builds the app for production to the `dist` folder.
-
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Builds the app for production to the `dist` folder. It correctly bundles Solid in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes. Your app is ready to be deployed!
 
 ## Deployment
 
@@ -42,8 +41,3 @@ You can deploy to Firebase Hosting by running `firebase deploy` after you have i
     "default": "your-firebase-project-id"
   }
 }
-```
-
-#### More Information
-
-- https://firebase.google.com/docs/hosting/multisites?hl=de&authuser=0#set_up_deploy_targets
