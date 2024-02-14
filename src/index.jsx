@@ -1,10 +1,11 @@
 /* @refresh reload */
 import { render } from "solid-js/web";
 import { I18nProvider } from "@amoutonbrady/solid-i18n";
-import { languages, useDict } from "./hooks/useTranslation";
+import { languages, useDict } from "./hooks/useDict";
 import { Router, Routes, Route } from "@solidjs/router";
 import Home from "./pages/Home/Home";
 import NotFound from "./pages/NotFound/NotFound";
+import About from "./pages/About/About";
 import LegalNotice from "./pages/LegalNotice/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import "./style.scss";
@@ -30,6 +31,7 @@ if (initialParam !== browserLanguage && !languages.includes(initialParam)) {
         <Router>
           <Routes>
             <Route path="/:language" component={Home} />
+            <Route path="/:language/about" component={About} />
             <Route path="/:language/legal-notice" component={LegalNotice} />
             <Route path="/:language/privacy-policy" component={PrivacyPolicy} />
             <Route path="*" component={NotFound} />
